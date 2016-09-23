@@ -24,8 +24,8 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'axiom-america' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -35,12 +35,13 @@
 	        <span class="icon-bar"></span>
 	      </button>
 	      <?php axiomamerica_custom_logo() ?>
-				<?php
+				<?php if (!has_custom_logo()) {
 				$description = get_bloginfo( 'description', 'display' );
 				if ( $description || is_customize_preview() ) : ?>
 					<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 				<?php
-				endif; ?>
+				endif;
+			  } ?>
 	    </div>
 
 	        <?php
@@ -51,7 +52,7 @@
 	                'container'         => 'div',
 	                'container_class'   => 'collapse navbar-collapse',
 	        				'container_id'      => 'navbar',
-	                'menu_class'        => 'nav navbar-nav',
+	                'menu_class'        => 'nav navbar-nav navbar-right',
 	                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 	                'walker'            => new wp_bootstrap_navwalker())
 	            );
@@ -60,4 +61,15 @@
 		</nav>
 	</header><!-- #masthead -->
 
+	<!-- Jumbotron (to be customized by theme customizer) -->
+	<div class="jumbotron">
+		<div class="container">
+			<h2>We have the absolute knowledge to help you succeed.</h2>
+			<a href="#" class="btn btn-primary btn-lg">Shop our store</a>
+			<a href="#" class="btn btn-primary btn-lg">Learn more</a>
+		</div>
+	</div><!-- Jumbotron -->
+
 	<div id="content" class="site-content">
+		<div class="container">
+			<div class="row">
