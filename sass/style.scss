@@ -42,19 +42,30 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+// @import "variables-site/variables-site";
+// @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "normalize";
+// @import "normalize";
 
 /*--------------------------------------------------------------
 # Bootstrap Variables and Mixins
 --------------------------------------------------------------*/
 @import "bootstrap/bootstrap/variables";
+@import "custom/_custom_vars.scss";
 @import "bootstrap/bootstrap/mixins";
+@import "custom/custom_mixins";
+
+/*--------------------------------------------------------------
+# Theme Variables
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Theme Mixins
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Bootstrap Normalize
@@ -62,79 +73,71 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "bootstrap/bootstrap/normalize";
 
 /*--------------------------------------------------------------
-# Theme Variables
---------------------------------------------------------------*/
-@import "custom/custom_vars";
-
-/*--------------------------------------------------------------
-# Theme Mixins
---------------------------------------------------------------*/
-@import "custom/custom_mixins";
-
-/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-@import "typography/typography";
+// @import "typography/typography";
 
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-@import "elements/elements";
+// @import "elements/elements";
 
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-@import "forms/forms";
+// @import "forms/forms";
 
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-@import "navigation/navigation";
+// @import "navigation/navigation";
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-@import "modules/accessibility";
+// @import "modules/accessibility";
 
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
-@import "modules/alignments";
+// @import "modules/alignments";
 
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
-@import "modules/clearings";
+// @import "modules/clearings";
 
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-@import "site/secondary/widgets";
+// @import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-@import "site/site";
+// @import "site/site";
 
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
-@import "modules/infinite-scroll";
+// @import "modules/infinite-scroll";
 
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-@import "media/media";
+// @import "media/media";
 
 /*--------------------------------------------------------------
 # Bootstrap Styles
 --------------------------------------------------------------*/
 @import "bootstrap/bootstrap/scaffolding";
+@import "bootstrap/bootstrap/type";
 @import "bootstrap/bootstrap/code";
 @import "bootstrap/bootstrap/grid";
 @import "bootstrap/bootstrap/tables";
 @import "custom/custom_bs_forms";
 @import "bootstrap/bootstrap/buttons";
+@import "bootstrap/bootstrap/button-groups";
 @import "bootstrap/bootstrap/component-animations";
 @import "bootstrap/bootstrap/dropdowns";
 @import "bootstrap/bootstrap/navs";

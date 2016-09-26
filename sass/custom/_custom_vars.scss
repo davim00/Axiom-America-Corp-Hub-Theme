@@ -1,57 +1,204 @@
-$phi: 1.618;
-$base_font_size: 16;
-$px: (1 / $base_font_size) * 1rem;
-
-// **---------
-// COLORS
-// *----------
-
-// DEFAULT _S COLOR VARS
-$color__background-body: #fff;
-$color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
-$color__background-pre: #eee;
-$color__background-ins: #fff9c0;
-
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
-$color__link-hover: midnightblue;
-$color__text-main: #404040;
-
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #ccc;
-$color__border-abbr: #666;
-// /END
+//
+// Variables
+// --------------------------------------------------
 
 
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
 
-// **---------
-// TYPOGRAPHY
-// *----------
+$gray-base:              #000;
+$gray-darker:            lighten($gray-base, 17.6%);
+$gray-dark:              lighten($gray-base, 35.3%);
+$gray:                   lighten($gray-base, 47.1%);
+$gray-light:             lighten($gray-base, 68.7%);
+$gray-lighter:           lighten($gray-base, 90.2%);
+
+$brand-primary:         rgb(0, 38, 61);
+$brand-success:         rgb(93, 126, 149);
+$brand-info:            $gray;
+$brand-warning:         rgb(243, 139, 0);
+$brand-danger:          rgb(207, 10, 44);
 
 
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
 
-// DEFAULT _S TYPOGRAPHY VARS
-$font__main: "Source Sans Pro", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-$font__code: "Source Code Pro", Monaco, Consolas, "Lucida Console", monospace;
-$font__pre: "Source Code Pro", "Courier 10 Pitch", Courier, monospace;
-$font__line-height-body: 1.5;
-$font__line-height-pre: 1.6;
-// /END
+//** Background color for `<body>`.
+$body-bg:               #fff;
+//** Global text color on `<body>`.
+$text-color:            $gray-darker;
+
+//** Global textual link color.
+$link-color:            saturate($brand-success, 15%);
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%);
+//** Link hover decoration.
+$link-hover-decoration: underline;
 
 
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
 
-// **---------
-// STRUCTURE
-// *----------
+$phi:                     1.618;
 
-// DEFAULT _S STRUCTURE  VARS
-$size__site-main: 100%;
-$size__site-sidebar: 25%;
-// /END
+$font-family-sans-serif:  "Source Sans Pro", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-base:        $font-family-sans-serif;
+
+$font-size-base:          16px;
+$font-size-large:         ceil(($font-size-base * 1.5)); // ~18px
+$font-size-small:         ceil(($font-size-base * 0.75)); // ~12px
+
+$heading-scale: 8; // amount of px headings grow from h6 to h1
+$font-size-h1:            $font-size-base + $heading-scale * (6 - 1); // 46px
+$font-size-h2:            $font-size-base + $heading-scale * (6 - 2); // 40px
+$font-size-h3:            $font-size-base + $heading-scale * (6 - 3); // 34px
+$font-size-h4:            $font-size-base + $heading-scale * (6 - 4); // 28px
+$font-size-h5:            $font-size-base + $heading-scale * (6 - 5); // 22px
+$font-size-h6:            $font-size-base + $heading-scale * (6 - 6); // 16px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        $phi; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:          inherit;
+$headings-font-weight:          normal;
+$headings-large-font-weight:    300;
+$headings-large-letter-space:   -0.03em;
+$headings-line-height:          1em;
+$headings-color:                inherit;
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+$padding-base-vertical:     8px;
+$padding-base-horizontal:   14px;
+
+$padding-large-vertical:    (($padding-base-vertical * 1.5));
+$padding-large-horizontal:  (($padding-base-horizontal * 1.5));
+
+$padding-small-vertical:    (($padding-base-vertical * 0.5));
+$padding-small-horizontal:  (($padding-base-vertical * 0.5));
+
+$padding-xs-vertical:       4px;
+$padding-xs-horizontal:     10px;
+
+$line-height-large:         $line-height-base;
+$line-height-small:         $line-height-base;
+
+$border-radius-base:        0px;
+$border-radius-large:       0px;
+$border-radius-small:       0px;
+
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:       $brand-success;
+
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding:            10px;
+//** Padding for cells in `.table-condensed`.
+$table-condensed-cell-padding:  7px;
+
+//** Default background color used for all tables.
+$table-bg:                      transparent;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               $gray-lighter;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                darken($gray-lighter, 5%);
+$table-bg-active:               $table-bg-hover;
+
+//** Border color for table and cell borders.
+$table-border-color:            darken($gray-lighter, 10%);
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal;
+
+$btn-default-color:              $text-color;
+$btn-default-bg:                 $gray-lighter;
+$btn-default-border:             darken($gray-lighter, 15%);
+
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 $brand-primary;
+$btn-primary-border:             $btn-primary-bg;
+
+$btn-success-color:              #fff;
+$btn-success-bg:                 $brand-success;
+$btn-success-border:             $btn-success-bg;
+
+$btn-info-color:                 #fff;
+$btn-info-bg:                    $brand-info;
+$btn-info-border:                $btn-info-bg;
+
+$btn-warning-color:              #fff;
+$btn-warning-bg:                 $brand-warning;
+$btn-warning-border:             $btn-warning-bg;
+
+$btn-danger-color:               #fff;
+$btn-danger-bg:                  $brand-danger;
+$btn-danger-border:              $btn-danger-bg;
+
+$btn-link-disabled-color:        $gray-light;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:         $border-radius-base;
+$btn-border-radius-large:        $border-radius-large;
+$btn-border-radius-small:        $border-radius-small;
+
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Background for the dropdown menu.
+$dropdown-bg:                    #fff;
+//** Dropdown menu `border-color`.
+$dropdown-border:                darken($gray-lighter, 10%);
+//** Dropdown menu `border-color` **for IE8**.
+$dropdown-fallback-border:       #ddd;
+//** Divider color for between dropdown items.
+$dropdown-divider-bg:            $gray-lighter;
+
+//** Dropdown link text color.
+$dropdown-link-color:            $gray-dark;
+//** Hover color for dropdown links.
+$dropdown-link-hover-color:      #fff;
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:         $brand-primary;
+
+//** Active dropdown menu item text color.
+$dropdown-link-active-color:     $component-active-color;
+//** Active dropdown menu item background color.
+$dropdown-link-active-bg:        $component-active-bg;
+
+//** Disabled dropdown menu item background color.
+$dropdown-link-disabled-color:   $gray-light;
+
+//** Text color for headers within dropdown menus.
+$dropdown-header-color:          $gray-light;
+
+//** Deprecated `$dropdown-caret-color` as of v3.1.0
+$dropdown-caret-color:           #000;
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         62px;
