@@ -19,7 +19,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body class="home blog logged-in wp-custom-logo group-blog hfeed with-hero">
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'axiom-america' ); ?></a>
 
@@ -28,7 +28,7 @@
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
@@ -62,7 +62,7 @@
 	</header><!-- #masthead -->
 
 	<!-- Jumbotron (to be customized by theme customizer) -->
-	<div class="jumbotron">
+	<div class="jumbotron hero">
 		<div class="container">
 			<h2>We have the absolute knowledge to help you succeed.</h2>
 			<a href="#" class="btn btn-primary btn-lg">Shop our store</a>

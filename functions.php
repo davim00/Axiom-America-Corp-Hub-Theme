@@ -58,6 +58,14 @@ function axiom_america_setup() {
 			echo $output;
 			}
 
+			// Change custom logo classes to play nice with Bootstrap
+			add_filter('get_custom_logo','change_logo_class');
+
+			function change_logo_class($html) {
+				$html = str_replace('class="custom-logo-link"', 'class="navbar-brand"', $html);
+				return $html;
+			}
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *

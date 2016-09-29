@@ -1,0 +1,20 @@
+// Gradients
+//
+// Adds complete gradients by speciying color.
+
+@mixin gradient-vertical($first-color, $first-color-stop, $second-color, $second-color-stop) {
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=0 ); /* IE6-9 */
+  background-image: -moz-linear-gradient(top,  $first-color $first-color-stop, $second-color $second-color-stop); /* FF3.6-15 */
+  background-image: -webkit-linear-gradient(top,  $first-color $first-color-stop,$second-color $second-color-stop); /* Chrome10-25,Safari5.1-6 */
+  background-image: linear-gradient(to bottom,  $first-color $first-color-stop,$second-color $second-color-stop); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+// Navbar vertical align
+//
+// Vertically center elements in the navbar.
+// Example: an element has a height of 30px, so write out `.navbar-vertical-align(30px);` to calculate the appropriate top margin.
+
+@mixin navbar-vertical-align($element-height) {
+  margin-top: (($navbar-small-height - $element-height) / 2);
+  margin-bottom: (($navbar-small-height - $element-height) / 2);
+}

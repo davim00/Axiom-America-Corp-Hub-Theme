@@ -25,16 +25,6 @@
 	</footer><!-- #colophon .container -->
 </div><!-- #page -->
 
-<script type="text/javascript">
-jQuery(window).scroll(function() {
-  if (jQuery(document).scrollTop() > 50) {
-    jQuery('nav').addClass('shrink');
-  } else {
-    jQuery('nav').removeClass('shrink');
-  }
-});
-</script>
-
 <?php wp_footer(); ?>
 
 </body>
