@@ -26,7 +26,7 @@ $brand-danger:          rgb(207, 10, 44);
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff;
+$body-bg:               #DBDBDB;
 //** Global text color on `<body>`.
 $text-color:            $gray-darker;
 
@@ -279,3 +279,68 @@ $navbar-transparent-brand-hover-bg:             $navbar-transparent-link-hover-b
 $navbar-transparent-toggle-hover-bg:            $navbar-transparent-link-hover-bg;
 $navbar-transparent-toggle-icon-bar-bg:         $navbar-transparent-link-color;
 $navbar-transparent-toggle-border-color:        transparent;
+
+
+//== Pagination
+//
+//##
+
+$pagination-color:                     $link-color;
+$pagination-bg:                        #fff;
+$pagination-border:                    #ddd;
+
+$pagination-hover-color:               $link-hover-color;
+$pagination-hover-bg:                  $gray-lighter;
+$pagination-hover-border:              #ddd;
+
+$pagination-active-color:              #fff;
+$pagination-active-bg:                 $brand-primary;
+$pagination-active-border:             $brand-primary;
+
+$pagination-disabled-color:            $gray-light;
+$pagination-disabled-bg:               #fff;
+$pagination-disabled-border:           #ddd;
+
+
+//== Pager
+//
+//##
+
+$pager-bg:                             $pagination-bg;
+$pager-border:                         $pagination-border;
+$pager-border-radius:                  15px;
+
+$pager-hover-bg:                       $pagination-hover-bg;
+
+$pager-active-bg:                      $pagination-active-bg;
+$pager-active-color:                   $pagination-active-color;
+
+$pager-disabled-color:                 $pagination-disabled-color;
+
+
+//== Jumbotron
+//
+//##
+
+$jumbotron-padding:              30px;
+$jumbotron-color:                inherit;
+$jumbotron-bg:                   $gray-lighter;
+$jumbotron-heading-color:        inherit;
+$jumbotron-font-size:            ceil(($font-size-base * 1.5));
+$jumbotron-heading-font-size:    ceil(($font-size-base * 4.5));
+
+// Heor Joumbotron
+$jumbotron-hero-padding:              65px;
+$jumbotron-hero-color:                $gray-lighter;
+$jumbotron-hero-bg:                   desaturate(adjust-hue(lighten($brand-primary, 25%), 10%), 80%);
+$jumbotron-hero-heading-color:        inherit;
+$jumbotron-hero-font-size:            ceil(($font-size-base * 1.5));
+$jumbotron-hero-heading-font-size:    ceil(($font-size-base * 4.5));
+
+
+//== Widgets
+//
+//##
+
+$widget-title-size: ceil($font-size-h2 * 0.65);
+$widget-font-size: ceil($font-size-base * 0.85);

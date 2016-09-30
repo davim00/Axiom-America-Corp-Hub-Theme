@@ -2,53 +2,96 @@
 // Jumbotron
 // --------------------------------------------------
 
+// Hero image
 
-.jumbotron {
-  padding-top:    $jumbotron-padding;
-  padding-bottom: $jumbotron-padding;
-  margin-bottom: $jumbotron-padding;
-  color: $jumbotron-color;
-  background-color: $jumbotron-bg;
+.hero{
 
-  h1,
-  .h1 {
-    color: $jumbotron-heading-color;
-  }
+  .jumbotron {
+    padding-top:    $jumbotron-hero-padding;
+    padding-bottom: floor($jumbotron-hero-padding / 3);
+    margin-bottom:  0;
+    color: $jumbotron-hero-color;
+    background-color: $jumbotron-hero-bg;
+    background-image: url('http://axiomamerica.dev/wp-content/themes/axiom-america/images/TopBackdrop.jpg');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
 
-  p {
-    margin-bottom: ($jumbotron-padding / 2);
-    font-size: $jumbotron-font-size;
-    font-weight: 200;
-  }
+    h2,
+    .h2 {
+      color: $jumbotron-hero-heading-color;
+      font-weight: normal;
+      letter-spacing: normal;
+      text-shadow: 0px 0px 15px #000000;
+      font-size: $jumbotron-hero-heading-font-size;
+      margin-top: 60px;
+    }
 
-  > hr {
-    border-top-color: darken($jumbotron-bg, 10%);
-  }
+    p {
+      margin-bottom: ($jumbotron-hero-padding / 2);
+      font-size: $jumbotron-hero-font-size;
+      font-weight: 200;
+    }
 
-  .container &,
-  .container-fluid & {
-    border-radius: $border-radius-large; // Only round corners at higher resolutions if contained in a container
-    padding-left:  ($grid-gutter-width / 2);
-    padding-right: ($grid-gutter-width / 2);
-  }
+    .btn {
+      margin: ($jumbotron-hero-padding / 2) 0;
+      &.btn-primary {
+        color: $jumbotron-hero-color;
+        border: 1px solid $jumbotron-hero-color;
+        background-color: transparent;
+        font-size: $font-size-large * 1.25;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+        width: 300px;
+        margin-bottom: 60px;
+        transition: all 500ms ease;
+        &:first-of-type {
+          margin-right: $jumbotron-hero-padding / 2;
+        }
+        &:last-of-type {
+          margin-left: $jumbotron-hero-padding / 2;
+        }
+        &:hover {
+          color: #fff;
+          border: 1px solid #fff;
+          background-color: rgba(#fff, 0.1);
+          -webkit-box-shadow: 0px 0px 15px 2px saturate(lighten($brand-success, 30%), 50%);
+          -moz-box-shadow: 0px 0px 15px 2px saturate(lighten($brand-success, 30%), 50%);
+          box-shadow: 0px 0px 15px 2px saturate(lighten($brand-success, 30%), 50%);
+        }
+      }
+    }
 
-  .container {
-    max-width: 100%;
-  }
-
-  @media screen and (min-width: $screen-sm-min) {
-    padding-top:    ($jumbotron-padding * 1.6);
-    padding-bottom: ($jumbotron-padding * 1.6);
+    > hr {
+      border-top-color: darken($jumbotron-hero-bg, 10%);
+    }
 
     .container &,
     .container-fluid & {
-      padding-left:  ($jumbotron-padding * 2);
-      padding-right: ($jumbotron-padding * 2);
+      border-radius: $border-radius-large; // Only round corners at higher resolutions if contained in a container
+      padding-left:  ($grid-gutter-width / 2);
+      padding-right: ($grid-gutter-width / 2);
     }
 
-    h1,
-    .h1 {
-      font-size: $jumbotron-heading-font-size;
+    .container {
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: $screen-sm-min) {
+      padding-top:    ($jumbotron-hero-padding * 2);
+      padding-bottom: $jumbotron-hero-padding;
+
+      .container &,
+      .container-fluid & {
+        padding-left:  ($jumbotron-hero-padding * 2);
+        padding-right: ($jumbotron-hero-padding * 2);
+      }
+
+      h1,
+      .h1 {
+        font-size: $jumbotron-hero-heading-font-size;
+      }
     }
   }
 }

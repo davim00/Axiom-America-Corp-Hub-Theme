@@ -19,7 +19,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body class="home blog logged-in wp-custom-logo group-blog hfeed with-hero">
+<body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'axiom-america' ); ?></a>
 
@@ -62,13 +62,16 @@
 	</header><!-- #masthead -->
 
 	<!-- Jumbotron (to be customized by theme customizer) -->
-	<div class="jumbotron hero">
-		<div class="container">
-			<h2>We have the absolute knowledge to help you succeed.</h2>
-			<a href="#" class="btn btn-primary btn-lg">Shop our store</a>
-			<a href="#" class="btn btn-primary btn-lg">Learn more</a>
-		</div>
-	</div><!-- Jumbotron -->
+	<div class="hero">
+		<div class="jumbotron">
+			<div class="container">
+				<h2>Evolving textiles through technology.</h2>
+				<a href="#" class="btn btn-primary btn-lg">Shop our store</a>
+				<a href="#" class="btn btn-primary btn-lg">Learn more</a>
+				<img class="img-responsive" src="<?php echo get_template_directory_uri() ?>/images/Machines.png" />
+			</div>
+		</div><!-- Jumbotron -->
+	</div><!-- .hero -->
 
 	<div id="content" class="site-content">
 		<div class="container">

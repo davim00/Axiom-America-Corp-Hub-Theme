@@ -315,16 +315,18 @@
         }
       }
       .dropdown-menu {
-        background-color: $navbar-default-link-active-bg;
+        background-color: $gray-lighter;
         border: none;
-        box-shadow: none;
+        -webkit-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
+        -moz-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
+        box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
         -webkit-transition: all 500ms ease;
         -moz-transition: all 500ms ease;
         -ms-transition: all 500ms ease;
         -o-transition: all 500ms ease;
         transition: all 500ms ease;
         > li > a {
-          color: $navbar-default-link-color;
+          color: $brand-primary;
           &:hover,
           &:focus {
             color: $navbar-default-link-hover-color;
@@ -338,7 +340,7 @@
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
         > li > a {
-          color: $navbar-default-link-color;
+          color: $brand-primary;
           &:hover,
           &:focus {
             color: $navbar-default-link-hover-color;
@@ -350,7 +352,7 @@
           &:hover,
           &:focus {
             color: $navbar-default-link-active-color;
-            background-color: $navbar-default-link-active-bg;
+            background-color: $navbar-default-bg;
           }
         }
         > .disabled > a {
@@ -506,7 +508,10 @@ body.with-hero{
           }
         }
         .dropdown-menu {
-          background-color: $navbar-default-link-active-bg;
+          background-color: $gray-lighter;
+          -webkit-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
+          -moz-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
+          box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
           > li > a {
             &:hover,
             &:focus {
@@ -531,7 +536,7 @@ body.with-hero{
             &,
             &:hover,
             &:focus {
-              background-color: $navbar-default-link-hover-bg;
+              background-color: $navbar-default-bg;
               color: $navbar-default-link-hover-color;
               background-image: none;
               box-shadow: none;
@@ -649,10 +654,13 @@ body.with-hero{
           }
         }
         .dropdown-menu {
-          background-color: $navbar-default-link-active-bg;
+          background-color: $gray-lighter;
           border: none;
+          -webkit-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
+          -moz-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
+          box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
           > li > a {
-            color: $navbar-default-link-color;
+            color: $brand-primary;
             &:hover,
             &:focus {
               color: $navbar-default-link-hover-color;
@@ -666,7 +674,7 @@ body.with-hero{
         // Dropdowns get custom display when collapsed
         .open .dropdown-menu {
           > li > a {
-            color: $navbar-default-link-color;
+            color: $brand-primary;
             &:hover,
             &:focus {
               color: $navbar-default-link-hover-color;
@@ -678,7 +686,7 @@ body.with-hero{
             &:hover,
             &:focus {
               color: $navbar-default-link-active-color;
-              background-color: $navbar-default-link-active-bg;
+              background-color: $navbar-default-bg;
             }
           }
           > .disabled > a {
