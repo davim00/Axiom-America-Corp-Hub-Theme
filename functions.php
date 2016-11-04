@@ -188,6 +188,16 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
+ * Load Kirki Customizer installation prompt.
+ */
+require_once get_template_directory() . '/inc/include-kirki.php';
+
+/**
+ * Load Kirki custom class script.
+ */
+require_once get_template_directory() . '/inc/axiomamerica-kirki.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
@@ -196,3 +206,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Additional template parts.
+ */
+get_template_part('inc/jumbotron');
