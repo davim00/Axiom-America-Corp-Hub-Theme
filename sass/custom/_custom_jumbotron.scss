@@ -12,7 +12,6 @@
     margin-bottom:  0;
     color: $jumbotron-hero-color;
     background-color: $jumbotron-hero-bg;
-    background-image: url('http://axiomamerica.dev/wp-content/themes/axiom-america/images/TopBackdrop.jpg');
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,11 +45,8 @@
         width: 300px;
         margin-bottom: 60px;
         transition: all 500ms ease;
-        &:first-of-type {
-          margin-right: $jumbotron-hero-padding / 2;
-        }
         &:last-of-type {
-          margin-left: $jumbotron-hero-padding / 2;
+          margin-left: $jumbotron-hero-padding;
         }
         &:hover {
           color: #fff;
