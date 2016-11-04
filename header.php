@@ -24,7 +24,15 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'axiom-america' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+		<?php
+			if ( get_theme_mod( 'hero_image_toggle', true ) ) :
+		?>
+		<nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
+		<?php else : ?>
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<?php
+			endif;
+		?>
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
@@ -61,17 +69,8 @@
 		</nav>
 	</header><!-- #masthead -->
 
-	<!-- Jumbotron (to be customized by theme customizer) -->
-	<div class="hero">
-		<div class="jumbotron">
-			<div class="container">
-				<h2>Evolving textiles through technology.</h2>
-				<a href="#" class="btn btn-primary btn-lg">Shop our store</a>
-				<a href="#" class="btn btn-primary btn-lg">Learn more</a>
-				<img class="img-responsive" src="<?php echo get_template_directory_uri() ?>/images/Machines.png" />
-			</div>
-		</div><!-- Jumbotron -->
-	</div><!-- .hero -->
+	<!-- Jumbotron hero section -->
+	<?php do_action( 'jumbotron_hero_action' ); ?>
 
 	<div id="content" class="site-content">
 		<div class="container">
