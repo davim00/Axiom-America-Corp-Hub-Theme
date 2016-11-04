@@ -3448,7 +3448,7 @@ h6, .h6 {
 .navbar.shrink.navbar-default .navbar-nav > .active > a, .navbar.shrink.navbar-default .navbar-nav > .active > a:hover, .navbar.shrink.navbar-default .navbar-nav > .active > a:focus {
   background-position: 0 -65px; }
 
-body.with-hero .navbar-default {
+.navbar-default.navbar-transparent {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=0 );
   /* IE6-9 */
   /* FF3.6-15 */
@@ -3461,49 +3461,49 @@ body.with-hero .navbar-default {
   border-color: transparent;
   background-color: transparent; }
   @media (max-width: 767px) {
-    body.with-hero .navbar-default {
+    .navbar-default.navbar-transparent {
       background-color: #00263d;
       background-image: none; } }
-  body.with-hero .navbar-default .navbar-brand {
+  .navbar-default.navbar-transparent .navbar-brand {
     color: #e6e6e6; }
-    body.with-hero .navbar-default .navbar-brand:hover, body.with-hero .navbar-default .navbar-brand:focus {
+    .navbar-default.navbar-transparent .navbar-brand:hover, .navbar-default.navbar-transparent .navbar-brand:focus {
       color: #e6e6e6;
       background-color: transparent; }
     @media (max-width: 767px) {
-      body.with-hero .navbar-default .navbar-brand {
+      .navbar-default.navbar-transparent .navbar-brand {
         color: #c4d6ed; }
-        body.with-hero .navbar-default .navbar-brand:hover, body.with-hero .navbar-default .navbar-brand:focus {
+        .navbar-default.navbar-transparent .navbar-brand:hover, .navbar-default.navbar-transparent .navbar-brand:focus {
           color: #fff;
           background-color: #315165; } }
-  body.with-hero .navbar-default .navbar-nav > li > a {
+  .navbar-default.navbar-transparent .navbar-nav > li > a {
     color: #e6e6e6; }
-    body.with-hero .navbar-default .navbar-nav > li > a:hover {
+    .navbar-default.navbar-transparent .navbar-nav > li > a:hover {
       color: #fff; }
-    body.with-hero .navbar-default .navbar-nav > li > a:focus {
+    .navbar-default.navbar-transparent .navbar-nav > li > a:focus {
       color: #fff; }
     @media (max-width: 767px) {
-      body.with-hero .navbar-default .navbar-nav > li > a {
+      .navbar-default.navbar-transparent .navbar-nav > li > a {
         color: #c4d6ed; }
-        body.with-hero .navbar-default .navbar-nav > li > a:hover {
+        .navbar-default.navbar-transparent .navbar-nav > li > a:hover {
           background-color: #315165;
           color: #fff;
           background-image: none; }
-        body.with-hero .navbar-default .navbar-nav > li > a:focus {
+        .navbar-default.navbar-transparent .navbar-nav > li > a:focus {
           background-color: #315165;
           color: #fff;
           background-image: none; } }
-  body.with-hero .navbar-default .navbar-nav > .active > a, body.with-hero .navbar-default .navbar-nav > .active > a:hover, body.with-hero .navbar-default .navbar-nav > .active > a:focus {
+  .navbar-default.navbar-transparent .navbar-nav > .active > a, .navbar-default.navbar-transparent .navbar-nav > .active > a:hover, .navbar-default.navbar-transparent .navbar-nav > .active > a:focus {
     background-color: transparent;
     color: #fff;
     background-position: 0 -115px; }
-  body.with-hero .navbar-default .navbar-nav > .disabled > a, body.with-hero .navbar-default .navbar-nav > .disabled > a:hover, body.with-hero .navbar-default .navbar-nav > .disabled > a:focus {
+  .navbar-default.navbar-transparent .navbar-nav > .disabled > a, .navbar-default.navbar-transparent .navbar-nav > .disabled > a:hover, .navbar-default.navbar-transparent .navbar-nav > .disabled > a:focus {
     color: #e6e6e6;
     background-color: transparent;
     background-image: none; }
-  body.with-hero .navbar-default .navbar-collapse {
+  .navbar-default.navbar-transparent .navbar-collapse {
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: none; }
-  body.with-hero .navbar-default .navbar-nav > .open > a {
+  .navbar-default.navbar-transparent .navbar-nav > .open > a {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$first-color', endColorstr='$second-color',GradientType=0 );
     /* IE6-9 */
     /* FF3.6-15 */
@@ -3511,118 +3511,119 @@ body.with-hero .navbar-default {
     /* Chrome10-25,Safari5.1-6 */
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 100%)
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
-    body.with-hero .navbar-default .navbar-nav > .open > a, body.with-hero .navbar-default .navbar-nav > .open > a:hover {
+    .navbar-default.navbar-transparent .navbar-nav > .open > a, .navbar-default.navbar-transparent .navbar-nav > .open > a:hover {
       color: #fff; }
-    body.with-hero .navbar-default .navbar-nav > .open > a:focus {
+    .navbar-default.navbar-transparent .navbar-nav > .open > a:focus {
       color: #fff;
       background-color: transparent; }
     @media (max-width: 767px) {
-      body.with-hero .navbar-default .navbar-nav > .open > a, body.with-hero .navbar-default .navbar-nav > .open > a:hover {
+      .navbar-default.navbar-transparent .navbar-nav > .open > a, .navbar-default.navbar-transparent .navbar-nav > .open > a:hover {
         background-color: #315165;
         color: #fff;
         background-image: none; }
-      body.with-hero .navbar-default .navbar-nav > .open > a:focus {
+      .navbar-default.navbar-transparent .navbar-nav > .open > a:focus {
         background-color: #315165;
         color: #fff;
         background-image: none; } }
-  body.with-hero .navbar-default .navbar-nav > .open .dropdown-menu {
+  .navbar-default.navbar-transparent .navbar-nav > .open .dropdown-menu {
     background-color: #e6e6e6;
     box-shadow: 3px 8px 15px 2px rgba(0, 0, 0, 0.22); }
-    body.with-hero .navbar-default .navbar-nav > .open .dropdown-menu > li > a:hover, body.with-hero .navbar-default .navbar-nav > .open .dropdown-menu > li > a:focus {
+    .navbar-default.navbar-transparent .navbar-nav > .open .dropdown-menu > li > a:hover, .navbar-default.navbar-transparent .navbar-nav > .open .dropdown-menu > li > a:focus {
       color: #fff;
       background-color: #00263d; }
   @media (max-width: 767px) {
-    body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > li > a:focus {
       color: #fff;
       background-color: #00263d; }
-    body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > .active > a, body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a, .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a:focus {
       background-color: #00263d;
       color: #fff;
       background-image: none;
       box-shadow: none; }
-    body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, body.with-hero .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #e6e6e6;
       background-color: transparent;
       background-image: none;
       box-shadow: none; } }
-body.with-hero .navbar.shrink.navbar-default {
+
+.navbar.shrink.navbar-default.navbar-transparent {
   background-color: #00263d;
   background-image: none;
   border-color: #00263d; }
-  body.with-hero .navbar.shrink.navbar-default .navbar-brand {
+  .navbar.shrink.navbar-default.navbar-transparent .navbar-brand {
     color: #c4d6ed; }
-    body.with-hero .navbar.shrink.navbar-default .navbar-brand:hover, body.with-hero .navbar.shrink.navbar-default .navbar-brand:focus {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-brand:hover, .navbar.shrink.navbar-default.navbar-transparent .navbar-brand:focus {
       color: #76a0d5;
       background-color: transparent; }
-  body.with-hero .navbar.shrink.navbar-default .navbar-nav > li > a {
+  .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > li > a {
     color: #c4d6ed;
     background-size: 100% 130px; }
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav > li > a:hover {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > li > a:hover {
       background-color: transparent;
       color: #fff;
       background-position: 0 -65px; }
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav > li > a:focus {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > li > a:focus {
       color: #fff;
       background-position: 0 -65px;
       background-color: transparent; }
     @media (max-width: 767px) {
-      body.with-hero .navbar.shrink.navbar-default .navbar-nav > li > a {
+      .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > li > a {
         color: #c4d6ed;
         background-image: none; }
-        body.with-hero .navbar.shrink.navbar-default .navbar-nav > li > a:hover {
+        .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > li > a:hover {
           background-color: #315165;
           color: #fff; }
-        body.with-hero .navbar.shrink.navbar-default .navbar-nav > li > a:focus {
+        .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > li > a:focus {
           color: #fff;
           background-image: none;
           background-color: #315165; } }
-  body.with-hero .navbar.shrink.navbar-default .navbar-nav > .active > a, body.with-hero .navbar.shrink.navbar-default .navbar-nav > .active > a:hover, body.with-hero .navbar.shrink.navbar-default .navbar-nav > .active > a:focus {
+  .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .active > a, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .active > a:hover, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .active > a:focus {
     background-color: transparent;
     color: #fff;
     background-position: 0 -65px; }
-  body.with-hero .navbar.shrink.navbar-default .navbar-nav > .disabled > a, body.with-hero .navbar.shrink.navbar-default .navbar-nav > .disabled > a:hover, body.with-hero .navbar.shrink.navbar-default .navbar-nav > .disabled > a:focus {
+  .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .disabled > a, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .disabled > a:hover, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .disabled > a:focus {
     color: #afafaf;
     background-color: transparent; }
-  body.with-hero .navbar.shrink.navbar-default .navbar-collapse {
+  .navbar.shrink.navbar-default.navbar-transparent .navbar-collapse {
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: none; }
-  body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a {
+  .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a {
     background-size: 100% 130px; }
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a, body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a:hover {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a:hover {
       color: #fff;
       background-position: 0 -65px; }
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a:focus {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a:focus {
       color: #fff;
       background-color: transparent;
       background-position: 0 -65px; }
     @media (max-width: 767px) {
-      body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a {
+      .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a {
         background-image: none; }
-        body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a, body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a:hover {
+        .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a:hover {
           color: #fff;
           background-color: #315165; }
-        body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open > a:focus {
+        .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open > a:focus {
           color: #fff;
           background-color: #315165; } }
-  body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open .dropdown-menu {
+  .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open .dropdown-menu {
     background-color: #e6e6e6;
     border: none;
     box-shadow: 3px 8px 15px 2px rgba(0, 0, 0, 0.22); }
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open .dropdown-menu > li > a {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open .dropdown-menu > li > a {
       color: #00263d; }
-      body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open .dropdown-menu > li > a:hover, body.with-hero .navbar.shrink.navbar-default .navbar-nav > .open .dropdown-menu > li > a:focus {
+      .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open .dropdown-menu > li > a:hover, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav > .open .dropdown-menu > li > a:focus {
         color: #fff;
         background-color: #00263d; }
   @media (max-width: 767px) {
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > li > a {
       color: #00263d; }
-      body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+      .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > li > a:hover, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #fff;
         background-color: #00263d; }
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > .active > a, body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #fff;
       background-color: #00263d; }
-    body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, body.with-hero .navbar.shrink.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar.shrink.navbar-default.navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #afafaf;
       background-color: transparent; } }
 
@@ -3632,7 +3633,6 @@ body.with-hero .navbar.shrink.navbar-default {
   margin-bottom: 0;
   color: #e6e6e6;
   background-color: #4b5d71;
-  background-image: url("http://axiomamerica.dev/wp-content/themes/axiom-america/images/TopBackdrop.jpg");
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3662,10 +3662,8 @@ body.with-hero .navbar.shrink.navbar-default {
       margin-bottom: 60px;
       -webkit-transition: all 500ms ease;
               transition: all 500ms ease; }
-      .hero .jumbotron .btn.btn-primary:first-of-type {
-        margin-right: 32.5px; }
       .hero .jumbotron .btn.btn-primary:last-of-type {
-        margin-left: 32.5px; }
+        margin-left: 65px; }
       .hero .jumbotron .btn.btn-primary:hover {
         color: #fff;
         border: 1px solid #fff;
@@ -3692,6 +3690,9 @@ body.with-hero .navbar.shrink.navbar-default {
 
 .site-content {
   word-wrap: break-word; }
+
+.top-nav-space {
+  min-height: 115px; }
 
 article, section.widget {
   background-color: #fff;
