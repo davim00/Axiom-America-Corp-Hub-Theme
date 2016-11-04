@@ -5,6 +5,10 @@
 	word-wrap: break-word;
 }
 
+.top-nav-space {
+	min-height: 115px;
+}
+
 article, section.widget {
   background-color: #fff;
   padding: $grid-gutter-width / 2;
