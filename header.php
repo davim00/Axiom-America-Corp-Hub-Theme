@@ -24,53 +24,77 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'axiom-america' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<?php
-			if ( get_theme_mod( 'hero_image_toggle', true ) ) :
-		?>
-		<nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
-		<?php else : ?>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<?php
-			endif;
-		?>
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <?php axiomamerica_custom_logo() ?>
-				<?php if (!has_custom_logo()) {
-				$description = get_bloginfo( 'description', 'display' );
-				if ( $description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-				<?php
-				endif;
-			  } ?>
-	    </div>
 
-	        <?php
-	            wp_nav_menu( array(
-	                'menu'              => 'primary',
-	                'theme_location'    => 'primary',
-	                'depth'             => 2,
-	                'container'         => 'div',
-	                'container_class'   => 'collapse navbar-collapse',
-	        				'container_id'      => 'navbar',
-	                'menu_class'        => 'nav navbar-nav navbar-right',
-	                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-	                'walker'            => new wp_bootstrap_navwalker())
-	            );
-	        ?>
-	    </div>
-		</nav>
+		<?php
+		// Site menu
+		do_action( 'site_menu_action' );
+		?>
+
 	</header><!-- #masthead -->
 
-	<!-- Jumbotron hero section -->
-	<?php do_action( 'jumbotron_hero_action' ); ?>
+	<?php
+	// Hero Section
+	do_action( 'jumbotron_hero_action' );
+	?>
+
+	<?php
+	// Featured posts
+	// do_action( 'featured_posts_action' );
+	?>
+
+	<!-- Featured posts -->
+	<div class="featured-posts">
+		<div class="container">
+		  <div class="row">
+		    <div class="col-sm-4">
+		      <div class="featured-post-home">
+						<div class="featured-post-thumbnail">
+							<img width="644" height="400" src="http://axiomamerica.dev/wp-content/uploads/2013/01/photo-1478059425650-ca13d6d422f4-644x400.jpg" alt="" />
+						</div>
+						<h3 class="entry-title">Sticky</h3>
+						<div class="featured-post-readmore">
+							<p>
+								<a href="#" class="btn btn-primary">Read More</a>
+							</p>
+						</div>
+		      </div>
+		    </div>
+				<div class="col-sm-4">
+		      <div class="featured-post-home">
+						<div class="featured-post-thumbnail">
+							<img width="644" height="400" src="http://axiomamerica.dev/wp-content/uploads/2013/01/photo-1478059425650-ca13d6d422f4-644x400.jpg" alt="" />
+						</div>
+						<h3 class="entry-title">Sticky</h3>
+						<div class="featured-post-readmore">
+							<p>
+								<a href="#" class="btn btn-primary">Read More</a>
+							</p>
+						</div>
+		      </div>
+		    </div>
+				<div class="col-sm-4">
+		      <div class="featured-post-home">
+						<div class="featured-post-thumbnail">
+							<img width="644" height="400" src="http://axiomamerica.dev/wp-content/uploads/2013/01/photo-1478059425650-ca13d6d422f4-644x400.jpg" alt="" />
+						</div>
+						<h3 class="entry-title">Sticky</h3>
+						<div class="featured-post-readmore">
+							<p>
+								<a href="#" class="btn btn-primary">Read More</a>
+							</p>
+						</div>
+		      </div>
+		    </div>
+		  </div><!-- .row -->
+			<div class="row">
+			  <div class="col-sm-12">
+			    <div class="featured-posts-blog-link">
+			    	<a href="#" class="btn btn-primary btn-blog-link btn-lg">View All News and Press Releases</a>
+			    </div>
+			  </div>
+			</div>
+		</div><!-- .container -->
+	</div><!-- .featured-posts -->
 
 	<div id="content" class="site-content">
 		<div class="container">

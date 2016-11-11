@@ -72,6 +72,11 @@ function axiom_america_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 644, 400, true ); // default Featured Image dimensions (cropped)
+
+    // additional image sizes
+    // delete the next line if you do not need additional image sizes
+    // add_image_size( 'category-thumb', 300, 9999 ); // 300 pixels wide (and unlimited height)
 
 	// This theme uses wp_nav_menu() in one location.
 
@@ -211,3 +216,4 @@ require get_template_directory() . '/inc/jetpack.php';
  * Additional template parts.
  */
 get_template_part('inc/jumbotron');
+get_template_part('inc/site-menu');
