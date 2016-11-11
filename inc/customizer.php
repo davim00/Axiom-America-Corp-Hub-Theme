@@ -29,6 +29,8 @@ add_action( 'customize_preview_init', 'axiom_america_customize_preview_js' );
 /**
  * Custom Customizer controls and options.
  */
+
+ // Hero image section
  axiomamerica_Kirki::add_section( 'hero_image', array(
    'title' => __( 'Hero Section' ),
    'description' => __( 'Show a hero section on the home page.' ),
@@ -226,4 +228,61 @@ axiomamerica_Kirki::add_field( 'hero_image_visibility', array(
 	),
 	'default'		=> 'homepage',
 	'priority'  => 60
+) );
+
+
+
+// Featured posts section
+axiomamerica_Kirki::add_section( 'featured_posts', array(
+	'title' => __( 'Featured Posts' ),
+	'description' => __( 'Show Featured posts thumbnails on the home page.' ),
+	'capability'	=> 'edit_theme_options',
+	'priority' => 71
+) );
+
+axiomamerica_Kirki::add_field( 'featured_posts_toggle', array(
+	'settings' => 'featured_posts_toggle',
+	'label'    => __( 'Show or hide the Featured posts', 'axiomamerica' ),
+	'section'  => 'featured_posts',
+	'type'     => 'switch',
+	'choices' => array(
+    'on'  => esc_attr__( 'Show', 'axiomamerica' ),
+    'off' => esc_attr__( 'Hide', 'axiomamerica' )
+	),
+	'default'  => '0',
+	'priority' => 10
+) );
+
+axiomamerica_Kirki::add_field( 'featured_posts_category', array(
+	'settings' => 'featured_posts_category',
+	'label'    => __( 'Select a category to feature on the home page.', 'axiomamerica' ),
+	'section'  => 'featured_posts',
+	'type'     => 'select',
+	'multiple' => 1,
+	'choices'  => Kirki_Helper::get_terms( 'category' ),
+	'default'  => 'option-1',
+	'priority' => 11,
+	'active_callback' => array(
+		array(
+			'setting'  => 'featured_posts_toggle',
+			'operator' => '==',
+			'value'    => '1',
+		),
+	),
+) );
+
+axiomamerica_Kirki::add_field( 'featured_posts_number', array(
+	'settings' => 'featured_posts_number',
+	'label'    => __( 'Number of featured posts to show', 'axiomamerica' ),
+	'section'  => 'featured_posts',
+	'type'     => 'text',
+	'default'  => esc_attr__( 3, 'axiomamerica' ),
+	'priority' => 12,
+	'active_callback' => array(
+		array(
+			'setting'  => 'featured_posts_toggle',
+			'operator' => '==',
+			'value'    => '1',
+		),
+	),
 ) );
