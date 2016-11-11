@@ -9,7 +9,7 @@
 	min-height: 115px;
 }
 
-article, section.widget {
+article, section.widget, .comments-area {
   background-color: #fff;
   padding: $grid-gutter-width / 2;
   margin-top: $grid-gutter-width;
@@ -67,4 +67,12 @@ article, section.widget {
       }
     }
   }
+}
+
+.post-thumbnail {
+	margin: $line-height-computed 0;
+
+	img {
+		min-width: 100%;
+	}
 }
