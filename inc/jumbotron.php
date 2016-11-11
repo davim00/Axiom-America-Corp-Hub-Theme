@@ -10,11 +10,11 @@
 
    if( ! function_exists( 'jumbotron_hero' ) ) {
      function jumbotron_hero() {
-       if( get_theme_mod( 'hero_image_toggle', true) ) {
-         if( get_theme_mod( 'hero_image_visibility', 'homepage' ) == 'homepage' && is_home() ||
-          get_theme_mod( 'hero_image_visibility', 'frontpage' ) == 'frontpage' && is_front_page() ) {
 
-            if ( get_theme_mod( 'hero_image_toggle', true ) ) : ?>
+      if( get_theme_mod( 'hero_image_visibility', 'homepage' ) == 'homepage' && is_home() ||
+        get_theme_mod( 'hero_image_visibility', 'frontpage' ) == 'frontpage' && is_front_page() ) :
+
+        if( get_theme_mod( 'hero_image_toggle', true) ) : ?>
 
             <!-- Jumbotron -->
             <div class="hero">
@@ -39,14 +39,19 @@
               </div><!-- Jumbotron -->
             </div><!-- .hero -->
 
-          <?php else : ?>
+         <?php else : ?>
 
-              <div class="top-nav-space"></div>
+           <div class="top-nav-space"></div>
 
-            <?php endif;
-          }
-       }
-     }
-   }
+        <?php endif;
+
+      else : ?>
+
+        <div class="top-nav-space"></div>
+
+      <?php endif;
+
+    }
+  }
 
    add_action( 'jumbotron_hero_action', 'jumbotron_hero', 10 ); ?>
