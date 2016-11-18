@@ -14,15 +14,15 @@
 		</div><!-- .container -->
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer container" role="contentinfo">
-		<div class="row">
-		  <div class="site-info col-sm-12">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'axiom-america' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'axiom-america' ), 'WordPress' ); ?></a>
-				<span class="sep"> | </span>
-				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'axiom-america' ), 'axiom-america', '<a href="http://www.axiomamerica.com" rel="designer">Axiom America</a>' ); ?>
-			</div><!-- .site-info -->
-		</div><!-- .row -->
-	</footer><!-- #colophon .container -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+			<div class="row">
+			  <div class="site-info col-sm-12">
+					<?php printf( esc_html__( '&copy; ' . date( 'Y' ) . ' ' . get_theme_mod( 'copyright_text', 'Axiom America' ) ) ); ?>
+				</div><!-- .site-info -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <script type="text/javascript">

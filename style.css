@@ -3692,6 +3692,10 @@ img, figure {
   max-width: 100%
   /* Adhere to container width. */ }
 
+.post-edit-link:before {
+  content: '\f040 \00a0';
+  font-family: "Font Awesome"; }
+
 button,
 input[type="button"],
 input[type="reset"],
@@ -4059,9 +4063,35 @@ article, section.widget, .comments-area {
   .post-thumbnail img {
     min-width: 100%; }
 
+footer {
+  background-color: #00263d;
+  color: #fff;
+  margin-top: 62px;
+  padding: 62px 0; }
+
+footer.entry-footer {
+  background-color: transparent;
+  color: inherit;
+  margin-top: 31px;
+  padding: 31px 0 0 0;
+  border-top: 1px solid #afafaf; }
+
+/* centered columns styles */
+.row-centered {
+  text-align: center; }
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left;
+  /* inline-block space fix */
+  margin-right: -4px; }
+
 .featured-posts .featured-post-home {
   background-color: #fff;
   padding: 31px;
+  margin-top: 62px;
   text-align: center; }
   .featured-posts .featured-post-home .featured-post-thumbnail {
     margin-top: -31px;
@@ -4071,7 +4101,7 @@ article, section.widget, .comments-area {
     .featured-posts .featured-post-home .featured-post-thumbnail img {
       min-width: 100%; }
   .featured-posts .featured-post-home .entry-title {
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 25px; }
   .featured-posts .featured-post-home .featured-post-readmore p {
     margin: 0; }

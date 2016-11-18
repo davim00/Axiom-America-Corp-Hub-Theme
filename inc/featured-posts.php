@@ -15,42 +15,63 @@
 
         if( get_theme_mod( 'featured_posts_toggle', true) ) : ?>
 
-            <!-- Jumbotron -->
-            <div class="hero">
-              <div class="jumbotron" style="background-image: url('<?php echo esc_url( get_theme_mod( 'hero_image_background_image', '' ) ); ?>'); background-color: <?php echo esc_url( get_theme_mod( 'hero_image_background_color', '#50526d' ) ); ?>;">
-                <div class="container">
-                  <h2><?php echo esc_attr( get_theme_mod( 'hero_image_title', 'A Remarkable Website' ) ); ?></h2>
-                  <?php if ( get_theme_mod( 'hero_image_button_01', true ) ) : ?>
-                    <a href="<?php echo esc_url( get_theme_mod( 'hero_image_button_01_link', '#' ) ); ?>" class="btn btn-primary btn-lg"><?php echo esc_attr( get_theme_mod( 'hero_image_button_01_text', 'Button 1' ) ); ?></a>
-                  <?php endif;
+        <?php if ( have_posts() ) : ?>
 
-                  if ( get_theme_mod( 'hero_image_button_02', true ) ) : ?>
-                    <a href="<?php echo esc_url( get_theme_mod( 'hero_image_button_02_link', '#' ) ); ?>" class="btn btn-primary btn-lg"><?php echo esc_attr( get_theme_mod( 'hero_image_button_02_text', 'Button 2' ) ); ?></a>
-                  <?php endif;
+          <!-- Featured posts -->
+          <div class="featured-posts">
+            <div class="container">
+              <div class="row row-centered">
 
-                  $output = '';
-                  if ( function_exists( 'get_theme_mod' ) )
-                    $output = '<img class="img-responsive" src="' . get_theme_mod( 'hero_image_foreground_image', '' ) . '" />';
-                  if ( empty( $output ) )
-                    $output = '';
-                  echo $output; ?>
+                <?php
+                $postcat = get_theme_mod('featured_posts_category', 1);
+                $postcount = get_theme_mod('featured_posts_number', 3);
+                $args = array(
+                  'cat' => $postcat,
+                  'posts_per_page' => $postcount
+                );
+                $catquery = new WP_Query( $args );
+                ?>
+
+                <?php while($catquery->have_posts()) : $catquery->the_post();	?>
+
+                <div class="col-sm-4 col-centered">
+                  <div class="featured-post-home">
+                    <?php if( has_post_thumbnail() ): ?>
+                    <div class="featured-post-thumbnail">
+                      <a href="<?php the_permalink(); ?>">
+                        <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
+                      </a>
+                    </div>
+                    <?php else: ?>
+                    <div class="featured-post-thumbnail">
+                      <a href="<?php the_permalink(); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri() . '/images/thumb_placeholder.jpg'; ?>" alt="<?php the_title(); ?>" />
+                      </a>
+                    </div>
+                    <?php endif; ?>
+                    <h3 class="entry-title"><?php the_title(); ?></h3>
+                    <div class="featured-post-readmore">
+                      <p>
+                        <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div><!-- Jumbotron -->
-            </div><!-- .hero -->
 
-         <?php else : ?>
+                <?php endwhile; ?>
 
-           <div class="top-nav-space"></div>
+                <?php wp_reset_query(); ?>
 
-        <?php endif;
+              </div><!-- .container -->
+            </div><!-- .featured-posts -->
 
-      else : ?>
+          <?php endif;
 
-        <div class="top-nav-space"></div>
+        endif;
 
-      <?php endif;
+      endif;
 
     }
   }
 
-   add_action( 'jumbotron_hero_action', 'jumbotron_hero', 10 ); ?>
+   add_action( 'featured_posts_action', 'featured_posts', 10 ); ?>

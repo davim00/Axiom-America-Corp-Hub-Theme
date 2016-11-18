@@ -217,3 +217,4 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 get_template_part('inc/jumbotron');
 get_template_part('inc/site-menu');
+get_template_part('inc/featured-posts');

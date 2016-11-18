@@ -39,62 +39,8 @@
 
 	<?php
 	// Featured posts
-	// do_action( 'featured_posts_action' );
+	do_action( 'featured_posts_action' );
 	?>
-
-	<!-- Featured posts -->
-	<div class="featured-posts">
-		<div class="container">
-		  <div class="row">
-		    <div class="col-sm-4">
-		      <div class="featured-post-home">
-						<div class="featured-post-thumbnail">
-							<img width="644" height="400" src="http://axiomamerica.dev/wp-content/uploads/2013/01/photo-1478059425650-ca13d6d422f4-644x400.jpg" alt="" />
-						</div>
-						<h3 class="entry-title">Sticky</h3>
-						<div class="featured-post-readmore">
-							<p>
-								<a href="#" class="btn btn-primary">Read More</a>
-							</p>
-						</div>
-		      </div>
-		    </div>
-				<div class="col-sm-4">
-		      <div class="featured-post-home">
-						<div class="featured-post-thumbnail">
-							<img width="644" height="400" src="http://axiomamerica.dev/wp-content/uploads/2013/01/photo-1478059425650-ca13d6d422f4-644x400.jpg" alt="" />
-						</div>
-						<h3 class="entry-title">Sticky</h3>
-						<div class="featured-post-readmore">
-							<p>
-								<a href="#" class="btn btn-primary">Read More</a>
-							</p>
-						</div>
-		      </div>
-		    </div>
-				<div class="col-sm-4">
-		      <div class="featured-post-home">
-						<div class="featured-post-thumbnail">
-							<img width="644" height="400" src="http://axiomamerica.dev/wp-content/uploads/2013/01/photo-1478059425650-ca13d6d422f4-644x400.jpg" alt="" />
-						</div>
-						<h3 class="entry-title">Sticky</h3>
-						<div class="featured-post-readmore">
-							<p>
-								<a href="#" class="btn btn-primary">Read More</a>
-							</p>
-						</div>
-		      </div>
-		    </div>
-		  </div><!-- .row -->
-			<div class="row">
-			  <div class="col-sm-12">
-			    <div class="featured-posts-blog-link">
-			    	<a href="#" class="btn btn-primary btn-blog-link btn-lg">View All News and Press Releases</a>
-			    </div>
-			  </div>
-			</div>
-		</div><!-- .container -->
-	</div><!-- .featured-posts -->
 
 	<div id="content" class="site-content">
 		<div class="container">

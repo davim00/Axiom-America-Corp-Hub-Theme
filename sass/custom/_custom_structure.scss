@@ -76,3 +76,31 @@ article, section.widget, .comments-area {
 		min-width: 100%;
 	}
 }
+
+footer {
+	background-color: $brand-primary;
+	color: #fff;
+	margin-top: $grid-gutter-width;
+	padding: $grid-gutter-width 0;
+}
+
+footer.entry-footer {
+	background-color: transparent;
+	color: inherit;
+	margin-top: ($grid-gutter-width / 2);
+	padding: ($grid-gutter-width / 2) 0 0 0;
+	border-top: 1px solid $gray-light;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}

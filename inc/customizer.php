@@ -286,3 +286,20 @@ axiomamerica_Kirki::add_field( 'featured_posts_number', array(
 		),
 	),
 ) );
+
+// Footer copyright area
+axiomamerica_Kirki::add_section( 'footer_options', array(
+	'title' => __( 'Footer Options' ),
+	'description' => __( 'Display options for the footer.' ),
+	'capability'	=> 'edit_theme_options',
+	'priority' => 81
+) );
+
+axiomamerica_Kirki::add_field( 'copyright_text', array(
+	'settings' => 'copyright_text',
+	'label'    => __( 'Text for the copyright after the year', 'axiomamerica' ),
+	'section'  => 'footer_options',
+	'type'     => 'text',
+	'default'  => '',
+	'priority' => 10
+) );
