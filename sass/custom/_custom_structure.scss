@@ -9,10 +9,57 @@
 	min-height: 115px;
 }
 
+.axiom-page-title {
+	padding-top: (($grid-gutter-width / 2) + 115);
+	padding-bottom: ($grid-gutter-width / 2);
+	background-color: $brand-success;
+	color: #fff;
+
+	h2 {
+		margin: 0;
+	}
+}
+
+.home-content {
+	background-color: #fff;
+	padding: ($grid-gutter-width /2);
+	margin-top: $grid-gutter-width;
+
+	article, section.widget, .comments-area {
+		background-color: transparent;
+		padding: 0;
+		margin-top: 0;
+	}
+}
+
+.frontpage-content {
+	background-color: #fff;
+	padding: $grid-gutter-width 0;
+	margin-top: $grid-gutter-width;
+
+	div[class*="col-sm"] {
+		h3 {
+			text-align: center;
+		}
+
+		&:first-of-type {
+			padding-right: $grid-gutter-width;
+			border-right: 1px solid $gray-light;
+		}
+		&:last-of-type {
+			padding-left: $grid-gutter-width;
+		}
+	}
+}
+
 article, section.widget, .comments-area {
   background-color: #fff;
   padding: $grid-gutter-width / 2;
   margin-top: $grid-gutter-width;
+}
+
+.entry-content {
+	margin-top: $line-height-computed;
 }
 
 .widget {

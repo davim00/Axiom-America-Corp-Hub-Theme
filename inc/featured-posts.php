@@ -11,7 +11,7 @@
    if( ! function_exists( 'featured_posts' ) ) {
      function featured_posts() {
 
-      if( is_home() || is_front_page() ) :
+      if( is_front_page() ) :
 
         if( get_theme_mod( 'featured_posts_toggle', true) ) : ?>
 
@@ -62,8 +62,14 @@
 
                 <?php wp_reset_query(); ?>
 
-              </div><!-- .container -->
-            </div><!-- .featured-posts -->
+              </div><!-- .row-centered -->
+              <div class="row">
+                <div class="col-sm-12 featured-posts-blog-link">
+                  <a href="<?php echo esc_url( get_blog_posts_page_url() ); ?>" class="btn btn-primary btn-blog-link">View all news and releases</a>
+                </div>
+              </div>
+            </div><!-- .container -->
+          </div><!-- .featured-posts -->
 
           <?php endif;
 

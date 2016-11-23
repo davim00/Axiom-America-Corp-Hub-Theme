@@ -9,10 +9,21 @@
  * @package Axiom_America
  */
 
-?>
+if( is_home() || is_front_page() ) : ?>
+				</div><!-- .home-content -->
+			</div><!-- .container -->
+		</div><!-- .row -->
+<?php else : ?>
 			</div><!-- .row -->
 		</div><!-- .container -->
+<?php endif; ?>
+
 	</div><!-- #content -->
+
+	<?php
+	// Quote Section
+	do_action( 'homepage_quote_action' );
+	?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">

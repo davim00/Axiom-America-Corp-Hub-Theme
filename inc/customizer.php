@@ -287,12 +287,150 @@ axiomamerica_Kirki::add_field( 'featured_posts_number', array(
 	),
 ) );
 
+// Content on the homepage
+axiomamerica_Kirki::add_section( 'content_options', array(
+	'title' => __( 'Homepage Content' ),
+	'description' => __( 'Show or hide the page content.' ),
+	'capability'	=> 'edit_theme_options',
+	'priority' => 81
+) );
+
+axiomamerica_Kirki::add_field( 'content_toggle', array(
+	'settings' => 'content_toggle',
+	'label'    => __( 'Show or hide the content of the homepage', 'axiomamerica' ),
+	'section'  => 'content_options',
+	'type'     => 'switch',
+	'choices' => array(
+    'on'  => esc_attr__( 'Show', 'axiomamerica' ),
+    'off' => esc_attr__( 'Hide', 'axiomamerica' )
+	),
+	'default'  => '0',
+	'priority' => 10
+) );
+
+axiomamerica_Kirki::add_field( 'content_title_1', array(
+	'settings' => 'content_title_1',
+	'label'    => __( 'Title for the left side content area', 'axiomamerica' ),
+	'section'  => 'content_options',
+	'type'     => 'text',
+	'default'  => 'Who we are',
+	'priority' => 11,
+	'active_callback' => array(
+		array(
+			'setting'  => 'content_toggle',
+			'operator' => '==',
+			'value'    => '0',
+		),
+	),
+) );
+
+axiomamerica_Kirki::add_field( 'content_text_1', array(
+	'settings' => 'content_text_1',
+	'label'    => __( 'Text for the left side content area', 'axiomamerica' ),
+	'section'  => 'content_options',
+	'type'     => 'textarea',
+	'default'  => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	'priority' => 12,
+	'active_callback' => array(
+		array(
+			'setting'  => 'content_toggle',
+			'operator' => '==',
+			'value'    => '0',
+		),
+	),
+) );
+
+axiomamerica_Kirki::add_field( 'content_title_2', array(
+	'settings' => 'content_title_2',
+	'label'    => __( 'Title for the right side content area', 'axiomamerica' ),
+	'section'  => 'content_options',
+	'type'     => 'text',
+	'default'  => 'What we do',
+	'priority' => 13,
+	'active_callback' => array(
+		array(
+			'setting'  => 'content_toggle',
+			'operator' => '==',
+			'value'    => '0',
+		),
+	),
+) );
+
+axiomamerica_Kirki::add_field( 'content_text_2', array(
+	'settings' => 'content_text_2',
+	'label'    => __( 'Text for the right side content area', 'axiomamerica' ),
+	'section'  => 'content_options',
+	'type'     => 'textarea',
+	'default'  => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	'priority' => 14,
+	'active_callback' => array(
+		array(
+			'setting'  => 'content_toggle',
+			'operator' => '==',
+			'value'    => '0',
+		),
+	),
+) );
+
+// Quote on the homepage
+axiomamerica_Kirki::add_section( 'quote_options', array(
+	'title' => __( 'Homepage Quote' ),
+	'description' => __( 'Provide a quote for the bottom of the homepage.' ),
+	'capability'	=> 'edit_theme_options',
+	'priority' => 91
+) );
+
+axiomamerica_Kirki::add_field( 'quote_toggle', array(
+	'settings' => 'quote_toggle',
+	'label'    => __( 'Show or hide the quote on the homepage', 'axiomamerica' ),
+	'section'  => 'quote_options',
+	'type'     => 'switch',
+	'choices' => array(
+    'on'  => esc_attr__( 'Show', 'axiomamerica' ),
+    'off' => esc_attr__( 'Hide', 'axiomamerica' )
+	),
+	'default'  => '0',
+	'priority' => 10
+) );
+
+axiomamerica_Kirki::add_field( 'quote_text', array(
+	'settings' => 'quote_text',
+	'label'    => __( 'Text for the quote on the homepage', 'axiomamerica' ),
+	'section'  => 'quote_options',
+	'type'     => 'text',
+	'default'  => esc_attr__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis eget sem tempus dignissim. Nam ac congue mauris, in faucibus enim. In consectetur orci sit amet enim porta feugiat. Ut vestibulum dui nulla, id tincidunt libero tempor eu. Vestibulum sollicitudin tortor ut scelerisque dignissim.', 'axiomamerica' ),
+	'priority' => 11,
+	'active_callback' => array(
+		array(
+			'setting'  => 'quote_toggle',
+			'operator' => '==',
+			'value'    => '1',
+		),
+	),
+) );
+
+axiomamerica_Kirki::add_field( 'quote_cite', array(
+	'settings' => 'quote_cite',
+	'label'    => __( 'Source for the quote on the homepage', 'axiomamerica' ),
+	'section'  => 'quote_options',
+	'type'     => 'text',
+	'default'  => esc_attr__( 'John Doe', 'axiomamerica' ),
+	'priority' => 12,
+	'active_callback' => array(
+		array(
+			'setting'  => 'quote_toggle',
+			'operator' => '==',
+			'value'    => '1',
+		),
+	),
+) );
+
 // Footer copyright area
 axiomamerica_Kirki::add_section( 'footer_options', array(
 	'title' => __( 'Footer Options' ),
 	'description' => __( 'Display options for the footer.' ),
 	'capability'	=> 'edit_theme_options',
-	'priority' => 81
+	'priority' => 101
 ) );
 
 axiomamerica_Kirki::add_field( 'copyright_text', array(

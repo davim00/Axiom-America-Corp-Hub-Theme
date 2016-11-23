@@ -19,8 +19,13 @@
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php axiom_america_posted_on(); ?>
+		<div class="row entry-meta">
+			<div class="col-sm-6 entry-meta-date">
+			  <?php axiom_america_posted_on(); ?>
+			</div>
+			<div class="col-sm-6 entry-meta-cat">
+			  <?php axiom_america_posted_cat(); ?>
+			</div>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>

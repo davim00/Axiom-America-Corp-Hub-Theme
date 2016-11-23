@@ -47,7 +47,8 @@
 
       else : ?>
 
-        <div class="top-nav-space"></div>
+        <!-- <div class="top-nav-space"></div> -->
+        <?php do_action( 'axiom_breadcrumbs_action' ); ?>
 
       <?php endif;
 

@@ -14,6 +14,8 @@
 
 get_header(); ?>
 
+<?php if( get_theme_mod( 'content_toggle', true) ) : ?>
+
 	<div id="primary" class="content-area col-sm-12">
 		<main id="main" class="site-main" role="main">
 
@@ -33,6 +35,19 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php
-// get_sidebar();
+<?php else : ?>
+	<div class="col-sm-6">
+		<h3><?php echo esc_html( get_theme_mod( 'content_title_1', 'Who we are' ) ); ?></h3>
+		<p>
+			<?php echo esc_html( get_theme_mod( 'content_text_1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' ) ); ?>
+		</p>
+	</div>
+	<div class="col-sm-6">
+	  <h3><?php echo esc_html( get_theme_mod( 'content_title_2', 'What we do' ) ); ?></h3>
+		<p>
+			<?php echo esc_html( get_theme_mod( 'content_text_2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' ) ); ?>
+		</p>
+	</div>
+<?php endif;
+
 get_footer();

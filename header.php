@@ -42,6 +42,19 @@
 	do_action( 'featured_posts_action' );
 	?>
 
-	<div id="content" class="site-content">
-		<div class="container">
-			<div class="row">
+	<?php if( is_front_page() ) :
+		if( get_theme_mod( 'content_toggle', true) ) : ?>
+		<div id="content" class="site-content">
+			<div class="home-content">
+				<div class="container">
+					<div class="row">
+		<?php else : ?>
+		<div class="frontpage-content">
+			<div class="container">
+				<div class="row">
+		<?php endif;
+		else : ?>
+		<div id="content" class="site-content">
+			<div class="container">
+				<div class="row">
+		<?php endif; ?>

@@ -3686,6 +3686,33 @@ h6, .h6 {
       .hero .jumbotron .h1 {
         font-size: 72px; } }
 
+.homepage-quote {
+  background-color: #5d7e95;
+  margin-top: 0;
+  margin-bottom: -62px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 62px 0; }
+  .homepage-quote blockquote {
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    font-size: 24px; }
+    .homepage-quote blockquote p:before {
+      content: "\201C"; }
+    .homepage-quote blockquote p:after {
+      content: "\201D"; }
+    .homepage-quote blockquote footer {
+      background-color: transparent;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      font-size: 20.4px; }
+
 img, figure {
   height: auto;
   /* Make sure images are scaled correctly. */
@@ -3695,6 +3722,33 @@ img, figure {
 .post-edit-link:before {
   content: '\f040 \00a0';
   font-family: "Font Awesome"; }
+
+.entry-meta {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: #5a5a5a; }
+  .entry-meta .entry-meta-cat {
+    text-align: right; }
+
+#breadcrumbs {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0; }
+  #breadcrumbs li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    color: #fff; }
+    #breadcrumbs li a {
+      color: #fff; }
+      #breadcrumbs li a:hover, #breadcrumbs li a:focus, #breadcrumbs li a:active {
+        color: #fff; }
+  #breadcrumbs .seperator {
+    font-size: 18px;
+    font-weight: 100;
+    color: #fff; }
 
 button,
 input[type="button"],
@@ -4015,10 +4069,42 @@ label {
 .top-nav-space {
   min-height: 115px; }
 
+.axiom-page-title {
+  padding-top: 146px;
+  padding-bottom: 31px;
+  background-color: #5d7e95;
+  color: #fff; }
+  .axiom-page-title h2 {
+    margin: 0; }
+
+.home-content {
+  background-color: #fff;
+  padding: 31px;
+  margin-top: 62px; }
+  .home-content article, .home-content section.widget, .home-content .comments-area {
+    background-color: transparent;
+    padding: 0;
+    margin-top: 0; }
+
+.frontpage-content {
+  background-color: #fff;
+  padding: 62px 0;
+  margin-top: 62px; }
+  .frontpage-content div[class*="col-sm"] h3 {
+    text-align: center; }
+  .frontpage-content div[class*="col-sm"]:first-of-type {
+    padding-right: 62px;
+    border-right: 1px solid #afafaf; }
+  .frontpage-content div[class*="col-sm"]:last-of-type {
+    padding-left: 62px; }
+
 article, section.widget, .comments-area {
   background-color: #fff;
   padding: 31px;
   margin-top: 62px; }
+
+.entry-content {
+  margin-top: 25px; }
 
 .widget h2.widget-title {
   font-size: 32px; }
@@ -4152,3 +4238,5 @@ footer.entry-footer {
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
   outline: 0; }
+
+/*# sourceMappingURL=style.css.map */
