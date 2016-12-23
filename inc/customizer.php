@@ -30,6 +30,17 @@ add_action( 'customize_preview_init', 'axiom_america_customize_preview_js' );
  * Custom Customizer controls and options.
  */
 
+ // Colors
+ axiomamerica_Kirki::add_field( 'custom_primary_color', array(
+	'type'        => 'color',
+	'settings'    => 'custom_primary_color',
+	'label'       => __( 'Primary Site Color', 'axiomamerica' ),
+	'section'     => 'colors',
+	'default'     => '#00263d',
+	'priority'    => 10,
+	'alpha'       => true,
+) );
+
  // Hero image section
  axiomamerica_Kirki::add_section( 'hero_image', array(
    'title' => __( 'Hero Section' ),
