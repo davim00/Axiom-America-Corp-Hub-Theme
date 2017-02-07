@@ -29,17 +29,31 @@ add_action( 'customize_preview_init', 'axiom_america_customize_preview_js' );
 /**
  * Custom Customizer controls and options.
  */
-
+/*
  // Colors
- axiomamerica_Kirki::add_field( 'custom_primary_color', array(
-	'type'        => 'color',
-	'settings'    => 'custom_primary_color',
-	'label'       => __( 'Primary Site Color', 'axiomamerica' ),
-	'section'     => 'colors',
-	'default'     => '#00263d',
-	'priority'    => 10,
-	'alpha'       => true,
-) );
+ function axiom_america_get_css_files($dir) {
+    //Get the list of files of the directory
+    $files = scandir($dir);
+
+    //Create an associative array
+    //with the values of the previous array
+    //removing the .css for the file name in the dropdown
+    function associate($a)
+    {
+        $temp = array();
+        foreach ($a as $value) {
+            $temp[$value] = ucfirst(str_replace('.css', '', $value));
+        }
+        return $temp;
+    }
+
+    //Use the associate function only in the CSS files
+    return associate(array_filter($files,
+        function ($val) {
+            return pathinfo($val)['extension'] == 'css';
+        }));
+}
+*/
 
  // Hero image section
  axiomamerica_Kirki::add_section( 'hero_image', array(

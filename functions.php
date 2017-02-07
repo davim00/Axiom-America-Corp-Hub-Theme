@@ -161,7 +161,9 @@ add_action( 'widgets_init', 'axiom_america_widgets_init' );
 function axiom_america_scripts() {
 	wp_enqueue_style( 'axiom-america-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'fontawesom-style', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+	wp_enqueue_style( 'fontawesome-style', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+
+	wp_enqueue_script( 'axiom-america-functions-js', get_template_directory_uri() . '/js/functions.js', array('jquery') );
 
 	wp_enqueue_script( 'axiom-america-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

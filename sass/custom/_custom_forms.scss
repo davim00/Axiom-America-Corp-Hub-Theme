@@ -17,7 +17,7 @@ textarea {
 	color: #CCC;
 	border: 1px solid #DDD;
 	border-radius: 3px;
-	padding: 3px;
+	padding: 12px;
 
 	&:focus {
 		color: #555;
@@ -39,4 +39,9 @@ label {
   &[for="comment"] {
     margin-top: 30px;
   }
+}
+
+
+.form-control {
+	height: 43px;
 }

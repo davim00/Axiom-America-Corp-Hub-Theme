@@ -88,32 +88,6 @@ article, section.widget, .comments-area {
       width: floor($line-height-computed * 0.75);
     }
   }
-
-  &.widget_search {
-    .search-form {
-      position: relative;
-      input[type="search"] {
-        width: 100%;
-        padding: (floor($line-height-computed * 0.33)) (floor($line-height-computed * 0.5));
-      }
-      input[type="submit"] {
-        padding: floor($line-height-computed * 0.33);
-        background-image: none;
-        box-shadow: none;
-        background-color: $btn-warning-bg;
-        color: #fff;
-        position: absolute;
-        right: 0;
-        top: 0;
-        border: {
-          top: 1px solid $input-border;
-          bottom: 1px solid $input-border;
-          right: 1px solid $input-border;
-          left: none;
-        }
-      }
-    }
-  }
 }
 
 .post-thumbnail {

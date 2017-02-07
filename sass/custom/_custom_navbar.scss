@@ -9,26 +9,28 @@
 // other navbar variations.
 
 .navbar {
-  min-height: $navbar-small-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  margin-bottom: $navbar-margin-bottom;
+  border: 1px solid transparent;
+  @include transition-standard();
 
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
+  // Prevent floats from breaking the navbar
+  @include clearfix;
 
   @media (min-width: $grid-float-breakpoint) {
-    min-height: $navbar-height; // Navbar is taller on screens > 767px
+    border-radius: $navbar-border-radius;
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    min-height: $navbar-small-height;
+  }
+
+  &.shrink {
+    min-height: $navbar-small-height;
   }
 }
 
-.navbar.shrink {
-  min-height: $navbar-small-height;
 
-  @media (min-width: $grid-float-breakpoint-max) {
-    min-height: $navbar-small-height; // Navbar shrunken height (same as mobile height)
-  }
-}
 
 
 //
@@ -39,6 +41,18 @@
 
 // Fix the top/bottom navbars when screen real estate supports it
 .navbar-fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+
+  // Undo the rounded corners
+  @media (min-width: $grid-float-breakpoint) {
+    border-radius: 0;
+  }
+}
+.navbar-fixed-top {
+  top: 0;
   border-width: 0;
 }
 
@@ -46,10 +60,38 @@
 // Brand/project name
 
 .navbar-brand {
-  @media (min-width: $grid-float-breakpoint) {
-    .navbar > .container &,
-    .navbar > .container-fluid & {
-      margin-left: -$navbar-padding-horizontal;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  font-size: $font-size-large;
+  line-height: $line-height-computed;
+  height: $navbar-height;
+  transition: all 300ms ease;
+
+  > img {
+    display: block;
+    max-width: 176px;
+    margin-top: -15px;
+    transition: all 300ms ease;
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      max-width: 112px;
+      margin-top: -5px;
+    }
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    padding: $navbar-padding-small-vertical $navbar-padding-horizontal;
+    height: $navbar-small-height;
+  }
+}
+
+.navbar.shrink {
+  .navbar-brand {
+    padding: $navbar-padding-small-vertical $navbar-padding-horizontal;
+    height: $navbar-small-height;
+
+    > img {
+      max-width: 112px;
+      margin-top: -5px;
     }
   }
 }
@@ -61,33 +103,53 @@
 // JavaScript plugin.
 
 .navbar-toggle {
-  padding: 9px 0;
+  padding: 0;
+  @include navbar-vertical-align(34px);
+  border: 0px solid transparent;
   border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+  }
 
   // Bars
   .icon-bar {
-    width: 19px;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
     transition: opacity, transform;
-    transition-duration: $navbar-icon-bar-speed;
-    transition-timing-function: $navbar-icon-bar-easing;
+    transition-duration: 200ms;
+    transition-timing-function: 200ms;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
   }
 
   &:not(.collapsed) {
     .icon-bar {
-      &:nth-child(2) {
+      &:nth-child(1) {
         transform: translateY(6px) rotate(45deg);
       }
-
-      &:nth-child(3) {
+      &:nth-child(2) {
         opacity: 0;
         transform: translateX(-100%);
       }
-
-      &:nth-child(4) {
+      &:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg);
       }
     }
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    display: none;
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    @include navbar-small-vertical-align(14px);
   }
 }
 
@@ -104,11 +166,6 @@
     padding-top:    10px;
     padding-bottom: 10px;
     line-height: $line-height-computed;
-    -webkit-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
-    -ms-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    transition: all 500ms ease;
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
@@ -148,16 +205,35 @@
       }
     }
   }
-  .navbar.shrink & {
+}
+
+.navbar.shrink {
+  .navbar-nav {
+
+    // Uncollapse the nav
     @media (min-width: $grid-float-breakpoint) {
-      > li {
-        > a {
-          padding-top:    $navbar-padding-small-vertical;
-          padding-bottom: $navbar-padding-small-vertical;
-        }
+
+      > li > a {
+        padding-top:    $navbar-padding-small-vertical;
+        padding-bottom: $navbar-padding-small-vertical;
       }
     }
   }
+}
+
+
+// Dropdown menus
+
+// Menu position and menu carets
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 0;
+  @include border-top-radius(0);
+}
+// Menu position and menu caret support for dropups via extra dropup class
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  margin-bottom: 0;
+  @include border-top-radius($navbar-border-radius);
+  @include border-bottom-radius(0);
 }
 
 
@@ -170,90 +246,97 @@
   border-color: $navbar-default-border;
 
   .navbar-brand {
-    padding: $navbar-default-brand-padding-vertical $navbar-padding-horizontal;
-    margin: $navbar-default-brand-margin-vertical 0;
     color: $navbar-default-brand-color;
-    height: 0;
-    -webkit-transition: margin-top 500ms ease, margin-bottom 500ms ease;
-    -moz-transition: margin-top 500ms ease, margin-bottom 500ms ease;
-    -ms-transition: margin-top 500ms ease, margin-bottom 500ms ease;
-    -o-transition: margin-top 500ms ease, margin-bottom 500ms ease;
-    transition: margin-top 500ms ease, margin-bottom 500ms ease;
     &:hover,
     &:focus {
       color: $navbar-default-brand-hover-color;
       background-color: $navbar-default-brand-hover-bg;
     }
+  }
 
-    > img {
-      height: $navbar-default-brand-height;
-      width: $navbar-default-brand-width;
-      -webkit-transition: all 500ms ease;
-      -moz-transition: all 500ms ease;
-      -ms-transition: all 500ms ease;
-      -o-transition: all 500ms ease;
-      transition: all 500ms ease;
+  .navbar-text {
+    color: $navbar-default-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: $navbar-default-link-color;
+      transition: all 300ms ease;
+
+      &:hover {
+        color: $navbar-default-link-hover-color;
+        background-color: transparent;
+      }
+      &:focus {
+        color: $navbar-default-link-hover-color;
+        background-color: transparent;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        left: ($navbar-padding-horizontal / 2);
+        right: ($navbar-padding-horizontal / 2);
+        bottom: 40px;
+        height: 2px;
+        background-color: $navbar-default-link-hover-color;
+        opacity: 0;
+        transition: all 300ms ease;
+      }
+      &:hover:before {
+        opacity: 1;
+      }
+    }
+    > .active > a {
+      background-color: transparent;
+      color: $navbar-default-link-color;
+
+      &:hover {
+        color: $navbar-default-link-hover-color;
+        background-color: transparent;
+      }
+      &:focus {
+        color: $navbar-default-link-hover-color;
+        background-color: transparent;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-disabled-color;
+        background-color: $navbar-default-link-disabled-bg;
+      }
     }
 
     @media (max-width: $grid-float-breakpoint-max) {
-      margin: $navbar-default-brand-small-margin-vertical 0;
-
-        > img {
-          height: $navbar-default-brand-small-height;
-          width: $navbar-default-brand-small-width;
-          float: left;
-        }
-      }
-    }
-
-    .navbar-nav {
       > li > a {
-        color: $navbar-default-link-color;
-        @include gradient-vertical(rgba(#fff, 0), 50%, rgba(#fff, 0.2), 100%);
-        background-position: 0 0;
-        background-repeat: repeat-y;
-        background-size: 100% 230px;
-        -webkit-transition: all 500ms ease;
-        -moz-transition: all 500ms ease;
-        -ms-transition: all 500ms ease;
-        -o-transition: all 500ms ease;
-        transition: all 500ms ease;
+
         &:hover {
-          background-color: transparent;
           color: $navbar-default-link-hover-color;
-          background-position: 0 -115px;
+          background-color: $navbar-default-link-hover-bg;
         }
         &:focus {
           color: $navbar-default-link-hover-color;
-          background-position: 0 -115px;
-          background-color: transparent;
+          background-color: $navbar-default-link-hover-bg;
         }
-        @media (max-width: $grid-float-breakpoint-max) {
-          color: $navbar-default-link-color;
-          background-image: none;
-          -webkit-transition: none;
-          -moz-transition: none;
-          -ms-transition: none;
-          -o-transition: none;
-          transition: none;
-          &:hover {
-            background-color: $navbar-default-link-hover-bg;
-            color: $navbar-default-link-hover-color;
-          }
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-image: none;
-            background-color: $navbar-default-link-hover-bg;
-          }
+        &:before {
+          opacity: 0;
+        }
+        &:hover:before {
+          opacity: 0;
         }
       }
       > .active > a {
-        &,
-        &:hover,
-        &:focus {
-          background-color: transparent;
+        background-color: transparent;
+        color: $navbar-default-link-color;
+
+        &:hover {
           color: $navbar-default-link-hover-color;
-          background-position: 0 -115px;
+          background-color: $navbar-default-link-hover-bg;
+        }
+        &:focus {
+          color: $navbar-default-link-hover-color;
+          background-color: $navbar-default-link-hover-bg;
         }
       }
       > .disabled > a {
@@ -265,73 +348,41 @@
         }
       }
     }
+  }
 
-    .navbar-collapse {
-      border-top: 1px solid rgba(#fff, 0.5);
-      box-shadow: none;
+  .navbar-toggle {
+    border-color: $navbar-default-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: transparent;
     }
+    .icon-bar {
+      background-color: $navbar-default-link-color;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $navbar-default-border;
+  }
 
   // Dropdown menu items
   .navbar-nav {
     // Remove background color from open dropdown
-    > .open {
-      > a {
-        @include gradient-vertical(rgba(#fff, 0), 50%, rgba(#fff, 0.2), 100%);
-        background-position: 0 0;
-        background-repeat: repeat-y;
-        background-size: 100% 230px;
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
         background-color: transparent;
-        -webkit-transition: all 500ms ease;
-        -moz-transition: all 500ms ease;
-        -ms-transition: all 500ms ease;
-        -o-transition: all 500ms ease;
-        transition: all 500ms ease;
-        &,
-        &:hover {
-          color: $navbar-default-link-hover-color;
-          background-position: 0 -115px;
-        }
-        &:focus {
-          color: $navbar-default-link-hover-color;
-          background-color: transparent;
-          background-position: 0 -115px;
-        }
-        @media (max-width: $grid-float-breakpoint-max) {
-          background-image: none;
-          -webkit-transition: none;
-          -moz-transition: none;
-          -ms-transition: none;
-          -o-transition: none;
-          transition: none;
-          &,
-          &:hover {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-link-hover-bg;
-          }
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-link-hover-bg;
-          }
-        }
+        color: $navbar-default-link-active-color;
       }
-      .dropdown-menu {
-        background-color: $gray-lighter;
-        border: none;
-        -webkit-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        -moz-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        -webkit-transition: all 500ms ease;
-        -moz-transition: all 500ms ease;
-        -ms-transition: all 500ms ease;
-        -o-transition: all 500ms ease;
-        transition: all 500ms ease;
-        > li > a {
-          color: $brand-primary;
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-bg;
-          }
+
+      @media (max-width: $grid-float-breakpoint-max) {
+        &,
+        &:hover,
+        &:focus {
+          background-color: $navbar-default-link-hover-bg;
+          color: $navbar-default-link-active-color;
         }
       }
     }
@@ -340,11 +391,11 @@
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
         > li > a {
-          color: $brand-primary;
+          color: $navbar-default-link-color;
           &:hover,
           &:focus {
             color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-bg;
+            background-color: $navbar-default-link-hover-bg;
           }
         }
         > .active > a {
@@ -352,7 +403,7 @@
           &:hover,
           &:focus {
             color: $navbar-default-link-active-color;
-            background-color: $navbar-default-bg;
+            background-color: $navbar-default-link-active-bg;
           }
         }
         > .disabled > a {
@@ -368,49 +419,14 @@
   }
 }
 
-.navbar.shrink.navbar-default {
-  .navbar-brand {
-    margin-top: $navbar-default-brand-small-margin-vertical;
-    margin-bottom: $navbar-default-brand-small-margin-vertical;
-    margin-left: -$navbar-padding-horizontal;
-    > img {
-      height: $navbar-default-brand-small-height;
-      width: $navbar-default-brand-small-width;
-    }
-  }
-
-  .navbar-nav {
-    > li > a {
-      background-size: 100% 130px;
-      &:hover {
-        background-position: 0 -65px;
-      }
-      &:focus {
-        background-position: 0 -65px;
-      }
-    }
-    > .active > a {
-      &,
-      &:hover,
-      &:focus {
-        background-position: 0 -65px;
-      }
-    }
-  }
-}
 
 // Transparent navbar
 
-.navbar-default.navbar-transparent {
-  @include gradient-vertical(rgba(#000, 0.5), 0%, rgba(#000, 0), 75%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
-  border-color: $navbar-transparent-border;
+.navbar-transparent {
   background-color: $navbar-transparent-bg;
-
-  @media (max-width: $grid-float-breakpoint-max) {
-    background-color: $navbar-default-bg;
-    background-image: none;
-  }
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+  border-color: $navbar-transparent-border;
+  transition: background-color 300ms ease, background-image 300ms ease;
 
   .navbar-brand {
     color: $navbar-transparent-brand-color;
@@ -419,145 +435,220 @@
       color: $navbar-transparent-brand-hover-color;
       background-color: $navbar-transparent-brand-hover-bg;
     }
+  }
 
-    @media (max-width: $grid-float-breakpoint-max) {
+  .navbar-text {
+    color: $navbar-transparent-color;
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    background-color: $navbar-default-bg;
+    background-image: none;
+    border-color: $navbar-default-border;
+
+    .navbar-brand {
       color: $navbar-default-brand-color;
       &:hover,
       &:focus {
-        color: $navbar-default-link-hover-color;
-        background-color: $navbar-default-link-hover-bg;
+        color: $navbar-default-brand-hover-color;
+        background-color: $navbar-default-brand-hover-bg;
       }
+    }
+
+    .navbar-text {
+      color: $navbar-default-color;
     }
   }
 
-    .navbar-nav {
+  .navbar-nav {
+    > li > a {
+      color: $navbar-transparent-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-transparent-link-hover-color;
+        background-color: $navbar-transparent-link-hover-bg;
+      }
+    }
+    > .active > a {
+      color: $navbar-transparent-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-transparent-link-active-color;
+        background-color: $navbar-transparent-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-transparent-link-disabled-color;
+        background-color: $navbar-transparent-link-disabled-bg;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
       > li > a {
-        color: $navbar-transparent-link-color;
+        color: $navbar-default-link-color;
+
         &:hover {
-          color: $navbar-transparent-link-hover-color;
+          color: $navbar-default-link-hover-color;
+          background-color: $navbar-default-link-hover-bg;
         }
         &:focus {
-          color: $navbar-transparent-link-hover-color;
+          color: $navbar-default-link-hover-color;
+          background-color: $navbar-default-link-hover-bg;
         }
-        @media (max-width: $grid-float-breakpoint-max) {
-          color: $navbar-default-link-color;
-          &:hover {
-            background-color: $navbar-default-link-hover-bg;
-            color: $navbar-default-link-hover-color;
-            background-image: none;
-          }
-          &:focus {
-            background-color: $navbar-default-link-hover-bg;
-            color: $navbar-default-link-hover-color;
-            background-image: none;
-          }
+        &:before {
+          opacity: 0;
+        }
+        &:hover:before {
+          opacity: 0;
         }
       }
       > .active > a {
-        &,
-        &:hover,
+        background-color: transparent;
+        color: $navbar-default-link-color;
+
+        &:hover {
+          color: $navbar-default-link-hover-color;
+          background-color: $navbar-default-link-hover-bg;
+        }
         &:focus {
-          background-color: $navbar-transparent-link-active-bg;
-          color: $navbar-transparent-link-active-color;
-          background-position: 0 -115px;
+          color: $navbar-default-link-hover-color;
+          background-color: $navbar-default-link-hover-bg;
         }
       }
       > .disabled > a {
         &,
         &:hover,
         &:focus {
-          color: $navbar-transparent-link-disabled-color;
-          background-color: $navbar-transparent-link-disabled-bg;
-          background-image: none;
+          color: $navbar-default-link-disabled-color;
+          background-color: $navbar-default-link-disabled-bg;
         }
       }
     }
+  }
 
-    .navbar-collapse {
-      border-top: 1px solid rgba(#fff, 0.5);
-      box-shadow: none;
+  .navbar-toggle {
+    border-color: $navbar-default-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: transparent;
     }
+    .icon-bar {
+      background-color: $navbar-default-link-color;
+    }
+  }
 
-  // Dropdown menu items
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $navbar-default-border;
+  }
+
+  // Dropdowns
   .navbar-nav {
-    // Remove background color from open dropdown
-    > .open {
-      > a {
-        @include gradient-vertical(rgba(#fff,0), 50%, rgba(#fff,0.3), 100%);
-        &,
-        &:hover {
-          color: $navbar-transparent-link-hover-color;
-        }
-        &:focus {
-          color: $navbar-default-link-hover-color;
-          background-color: $navbar-transparent-link-hover-bg;
-        }
-        @media (max-width: $grid-float-breakpoint-max) {
-          &,
-          &:hover {
-            background-color: $navbar-default-link-hover-bg;
-            color: $navbar-default-link-hover-color;
-            background-image: none;
-          }
-          &:focus {
-            background-color: $navbar-default-link-hover-bg;
-            color: $navbar-default-link-hover-color;
-            background-image: none;
-          }
-        }
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: $navbar-default-link-active-color;
       }
-      .dropdown-menu {
-        background-color: $gray-lighter;
-        -webkit-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        -moz-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        > li > a {
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-bg;
-          }
+
+      @media (max-width: $grid-float-breakpoint-max) {
+        &,
+        &:hover,
+        &:focus {
+          background-color: $navbar-default-link-hover-bg;
+          color: $navbar-default-link-active-color;
         }
       }
     }
 
     @media (max-width: $grid-float-breakpoint-max) {
-      // Dropdowns get custom display when collapsed
+      // Dropdowns get custom display
       .open .dropdown-menu {
+        > .dropdown-header {
+          border-color: $navbar-default-border;
+        }
+        .divider {
+          background-color: $navbar-default-border;
+        }
         > li > a {
+          color: $navbar-default-link-color;
           &:hover,
           &:focus {
             color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-bg;
+            background-color: $navbar-default-link-hover-bg;
           }
         }
         > .active > a {
           &,
           &:hover,
           &:focus {
-            background-color: $navbar-default-bg;
-            color: $navbar-default-link-hover-color;
-            background-image: none;
-            box-shadow: none;
+            color: $navbar-default-link-active-color;
+            background-color: $navbar-default-link-active-bg;
           }
         }
         > .disabled > a {
           &,
           &:hover,
           &:focus {
-            color: $navbar-transparent-link-disabled-color;
-            background-color: $navbar-transparent-link-disabled-bg;
-            background-image: none;
-            box-shadow: none;
+            color: $navbar-default-link-disabled-color;
+            background-color: $navbar-default-link-disabled-bg;
           }
         }
       }
     }
   }
+
+  .navbar-link {
+    color: $navbar-default-link-color;
+    &:hover {
+      color: $navbar-default-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: $navbar-default-link-color;
+    &:hover,
+    &:focus {
+      color: $navbar-default-link-hover-color;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-disabled-color;
+      }
+    }
+  }
 }
 
+.shrink {
+  .navbar-nav {
+    > li > a {
+      &:before {
+        content: "";
+        position: absolute;
+        left: ($navbar-padding-horizontal / 2);
+        right: ($navbar-padding-horizontal / 2);
+        bottom: 15px;
+        height: 2px;
+        background-color: $navbar-default-link-hover-color;
+        opacity: 0;
+        transition: all 300ms ease;
+      }
+      &:hover:before {
+        opacity: 1;
+      }
+    }
+  }
+}
 
-.navbar.shrink.navbar-default.navbar-transparent {
+.navbar-transparent.shrink {
   background-color: $navbar-default-bg;
   background-image: none;
   border-color: $navbar-default-border;
@@ -571,41 +662,28 @@
     }
   }
 
+  .navbar-text {
+    color: $navbar-default-color;
+  }
+
   .navbar-nav {
     > li > a {
       color: $navbar-default-link-color;
-      background-size: 100% 130px;
-      &:hover {
-        background-color: transparent;
-        color: $navbar-default-link-hover-color;
-        background-position: 0 -65px;
-      }
+
+      &:hover,
       &:focus {
         color: $navbar-default-link-hover-color;
-        background-position: 0 -65px;
-        background-color: transparent;
-      }
-      @media (max-width: $grid-float-breakpoint-max) {
-        color: $navbar-default-link-color;
-        background-image: none;
-        &:hover {
-          background-color: $navbar-default-link-hover-bg;
-          color: $navbar-default-link-hover-color;
-        }
-        &:focus {
-          color: $navbar-default-link-hover-color;
-          background-image: none;
-          background-color: $navbar-default-link-hover-bg;
-        }
+        background-color: $navbar-transparent-link-hover-bg;
       }
     }
     > .active > a {
-      &,
+      color: $navbar-default-link-color;
+      background-color: transparent;
+
       &:hover,
       &:focus {
+        color: $navbar-default-link-active-color;
         background-color: transparent;
-        color: $navbar-default-link-hover-color;
-        background-position: 0 -65px;
       }
     }
     > .disabled > a {
@@ -614,88 +692,6 @@
       &:focus {
         color: $navbar-default-link-disabled-color;
         background-color: $navbar-default-link-disabled-bg;
-      }
-    }
-  }
-
-    .navbar-collapse {
-      border-top: 1px solid rgba(#fff, 0.5);
-      box-shadow: none;
-    }
-
-  // Dropdown menu items
-  .navbar-nav {
-    // Remove background color from open dropdown
-    > .open {
-      > a {
-        background-size: 100% 130px;
-        &,
-        &:hover {
-          color: $navbar-default-link-hover-color;
-          background-position: 0 -65px;
-        }
-        &:focus {
-          color: $navbar-default-link-hover-color;
-          background-color: transparent;
-          background-position: 0 -65px;
-        }
-        @media (max-width: $grid-float-breakpoint-max) {
-          background-image: none;
-          &,
-          &:hover {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-link-hover-bg;
-          }
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-link-hover-bg;
-          }
-        }
-      }
-      .dropdown-menu {
-        background-color: $gray-lighter;
-        border: none;
-        -webkit-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        -moz-box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        box-shadow: 3px 8px 15px 2px rgba(0,0,0,0.22);
-        > li > a {
-          color: $brand-primary;
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-bg;
-          }
-        }
-      }
-    }
-
-    @media (max-width: $grid-float-breakpoint-max) {
-      // Dropdowns get custom display when collapsed
-      .open .dropdown-menu {
-        > li > a {
-          color: $brand-primary;
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-bg;
-          }
-        }
-        > .active > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-active-color;
-            background-color: $navbar-default-bg;
-          }
-        }
-        > .disabled > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-disabled-color;
-            background-color: $navbar-default-link-disabled-bg;
-          }
-        }
       }
     }
   }

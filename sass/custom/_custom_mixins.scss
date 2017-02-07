@@ -9,12 +9,12 @@
   background-image: linear-gradient(to bottom,  $first-color $first-color-stop,$second-color $second-color-stop); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
-// Navbar vertical align
+// Navbar small vertical align
 //
 // Vertically center elements in the navbar.
 // Example: an element has a height of 30px, so write out `.navbar-vertical-align(30px);` to calculate the appropriate top margin.
 
-@mixin navbar-vertical-align($element-height) {
+@mixin navbar-small-vertical-align($element-height) {
   margin-top: (($navbar-small-height - $element-height) / 2);
   margin-bottom: (($navbar-small-height - $element-height) / 2);
 }
@@ -84,4 +84,13 @@
 
 @mixin btn-fade() {
   transition: all 300ms ease;
+}
+
+
+// Standard transition
+//
+// Control animation on verious elements.
+
+@mixin transition-standard($element: all, $time: 300ms, $type: ease) {
+  transition: $element $time $type;
 }
