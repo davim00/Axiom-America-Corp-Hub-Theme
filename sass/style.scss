@@ -1,20 +1,20 @@
 /*!
 Theme Name: Axiom America
-Theme URI: http://underscores.me/
-Author: Axiom America
-Author URI: http://www.axiomamerica.com
-Description: Starter theme for the new corporate hub for Axiom America, LLC.
+Theme URI: http://Axiom America.me/
+Author: Matt Davis
+Author URI: http://Axiom America.me/
+Description: Base theme used to create an HTML template for prototyping new Wordpress theme designs.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: axiom-america
+Text Domain: axiomamerica
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-Axiom America is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
+Axiom America is based on Axiom America http://Axiom America.me/, (C) 2012-2016 Automattic, Inc.
+Axiom America is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -23,13 +23,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
+# Normalize & Print
 # Typography
 # Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
+# Forms & Tables
+# Components
 # Accessibility
 # Alignments
 # Clearings
@@ -42,126 +40,100 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-// @import "variables-site/variables-site";
-// @import "mixins/mixins-master";
+//@import "variables-site/variables-site";
+//@import "mixins/mixins-master";
+@import "bootstrap/mixins";
+@import "custom/axm-mixins";
+@import "custom/axm-variables";
 
 /*--------------------------------------------------------------
-# Normalize
+# Normalize & Print
 --------------------------------------------------------------*/
-// @import "normalize";
-
-/*--------------------------------------------------------------
-# Bootstrap Variables and Mixins
---------------------------------------------------------------*/
-@import "bootstrap/bootstrap/variables";
-@import "custom/_custom_vars.scss";
-@import "bootstrap/bootstrap/mixins";
-@import "custom/custom_mixins";
-
-/*--------------------------------------------------------------
-# Theme Variables
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-# Theme Mixins
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Bootstrap Normalize
---------------------------------------------------------------*/
-@import "bootstrap/bootstrap/normalize";
-
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-// @import "typography/typography";
+//@import "normalize";
+@import "bootstrap/normalize";
+@import "bootstrap/print";
 
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-// @import "elements/elements";
+//@import "elements/elements";
+@import "custom/axm-structure";
 
 /*--------------------------------------------------------------
-# Forms
+# Typography
 --------------------------------------------------------------*/
-// @import "forms/forms";
+//@import "typography/typography";
+@import "bootstrap/code";
+@import "custom/axm-typography";
 
 /*--------------------------------------------------------------
-# Navigation
+# Layout
 --------------------------------------------------------------*/
-// @import "navigation/navigation";
+@import "bootstrap/grid";
+
+
+/*--------------------------------------------------------------
+# Forms & Tables
+--------------------------------------------------------------*/
+//@import "forms/forms";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "custom/axm-forms";
+@import "custom/axm-buttons";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+//@import "navigation/navigation";
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "custom/axm-nav";
+@import "custom/axm-navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-// @import "modules/accessibility";
+//@import "modules/accessibility";
 
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
-// @import "modules/alignments";
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-// @import "modules/clearings";
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-// @import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-// @import "site/site";
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-// @import "modules/infinite-scroll";
+//@import "modules/alignments";
+@import "bootstrap/utilities";
+@import "custom/axm-utilities";
+@import "bootstrap/responsive-utilities";
 
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-// @import "media/media";
+//@import "media/media";
+@import "bootstrap/media";
 
 /*--------------------------------------------------------------
-# Bootstrap Styles
+# Content
 --------------------------------------------------------------*/
-@import "bootstrap/bootstrap/scaffolding";
-@import "bootstrap/bootstrap/type";
-@import "bootstrap/bootstrap/code";
-@import "bootstrap/bootstrap/grid";
-@import "bootstrap/bootstrap/tables";
-@import "bootstrap/bootstrap/forms";
-@import "custom/custom_bs_forms";
-@import "bootstrap/bootstrap/buttons";
-@import "bootstrap/bootstrap/button-groups";
-@import "bootstrap/bootstrap/input-groups";
-@import "bootstrap/bootstrap/component-animations";
-@import "bootstrap/bootstrap/dropdowns";
-@import "bootstrap/bootstrap/navs";
-@import "bootstrap/bootstrap/navbar";
-@import "bootstrap/bootstrap/pagination";
-@import "bootstrap/bootstrap/pager";
-@import "bootstrap/bootstrap/jumbotron";
-@import "bootstrap/bootstrap/thumbnails";
-@import "bootstrap/bootstrap/responsive-embed";
-@import "bootstrap/bootstrap/utilities";
-@import "bootstrap/bootstrap/responsive-utilities";
-
-/*--------------------------------------------------------------
-# Theme Styles
---------------------------------------------------------------*/
-@import "custom/custom_typography";
-@import "custom/custom_navbar";
-@import "custom/custom_jumbotron";
-@import "custom/custom_homepage_quote";
-@import "custom/custom_elements";
-@import "custom/custom_buttons";
-@import "custom/custom_forms";
-@import "custom/custom_structure";
-@import "custom/custom_featured_posts";
-@import "custom/custom_accessibility";
+@import "theme/wordpress";
+@import "custom/axm-widgets";
+@import "custom/axm-layout";
+@import "custom/axm-frontpage";

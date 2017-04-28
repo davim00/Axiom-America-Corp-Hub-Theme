@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying posts
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -19,13 +19,8 @@
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="row entry-meta">
-			<div class="col-sm-6 entry-meta-date">
-			  <?php axiom_america_posted_on(); ?>
-			</div>
-			<div class="col-sm-6 entry-meta-cat">
-			  <?php axiom_america_posted_cat(); ?>
-			</div>
+		<div class="entry-meta">
+			<?php axiom_america_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -33,13 +28,6 @@
 
 	<div class="entry-content">
 		<?php
-			// check for a Featured Image
-			if ( has_post_thumbnail() ) { ?>
-				<div class="post-thumbnail">
-					<?php the_post_thumbnail(); ?>
-				</div>
-			<?php	};
-
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'axiom-america' ), array( 'span' => array( 'class' => array() ) ) ),

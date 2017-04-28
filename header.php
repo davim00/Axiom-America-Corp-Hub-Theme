@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme.
+ * The header for our theme
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
@@ -24,37 +24,26 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'axiom-america' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<?php
+			if ( is_front_page() && is_home() ) : ?>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<?php else : ?>
+				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			<?php
+			endif;
 
-		<?php
-		// Site menu
-		do_action( 'site_menu_action' );
-		?>
+			$description = get_bloginfo( 'description', 'display' );
+			if ( $description || is_customize_preview() ) : ?>
+				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+			<?php
+			endif; ?>
+		</div><!-- .site-branding -->
 
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'axiom-america' ); ?></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-	<?php
-	// Hero Section
-	do_action( 'jumbotron_hero_action' );
-	?>
-
-	<?php
-	// Featured posts
-	do_action( 'featured_posts_action' );
-	?>
-
-	<?php if( is_front_page() ) :
-		if( get_theme_mod( 'content_toggle', true) ) : ?>
-		<div id="content" class="site-content">
-			<div class="home-content">
-				<div class="container">
-					<div class="row">
-		<?php else : ?>
-		<div class="frontpage-content">
-			<div class="container">
-				<div class="row">
-		<?php endif;
-		else : ?>
-		<div id="content" class="site-content">
-			<div class="container">
-				<div class="row">
-		<?php endif; ?>
+	<div id="content" class="site-content">

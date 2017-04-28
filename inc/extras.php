@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom functions that act independently of the theme templates.
+ * Custom functions that act independently of the theme templates
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
@@ -33,22 +33,7 @@ add_filter( 'body_class', 'axiom_america_body_classes' );
  */
 function axiom_america_pingback_header() {
 	if ( is_singular() && pings_open() ) {
-		echo '<link rel="pingback" href="', bloginfo( 'pingback_url' ), '">';
+		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
 add_action( 'wp_head', 'axiom_america_pingback_header' );
-
-
-/**
- * Get blog posts page URL.
- *
- * @return string The blog posts page URL.
- */
-function get_blog_posts_page_url() {
-	// If front page is set to display a static page, get the URL of the posts page.
-	if ( 'page' === get_option( 'show_on_front' ) ) {
-		return get_permalink( get_option( 'page_for_posts' ) );
-	}
-	// The front page IS the posts page. Get its URL.
-	return get_home_url();
-}
