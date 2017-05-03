@@ -51,11 +51,17 @@ module.exports = function(grunt) {
 //                    spawn: false,
 //                },
 //            },
+            scripts: {
+              files: ['js/*.js'],
+            },
             html: {
               files: '*.html'
             },
+            php: {
+              files: ['*.php', 'template-parts/*.php', 'inc/*.php']
+            },
             css: {
-                files: ['sass/*.scss', 'sass/custom/*.scss'],
+                files: ['sass/*.scss', 'sass/custom/*.scss', 'sass/theme/*.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false,
