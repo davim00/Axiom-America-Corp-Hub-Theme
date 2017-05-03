@@ -1,0 +1,61 @@
+//
+// Gallery post format
+// --------------------------------------------------
+
+.format-gallery {
+
+  .gallery {
+    margin-top: (($grid-gutter-width / 2));
+    margin-bottom: (($grid-gutter-width / 2));
+
+    &.row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .col-sm-4 {
+      padding: 0;
+    }
+
+    figure {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .gallery-item {
+      text-align: center;
+
+      .gallery-icon {
+        position: relative;
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .wp-caption-text {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,0.3);
+        color: $gray-lighter;
+        padding: (($grid-gutter-width / 4));
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      &:hover .wp-caption-text {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      margin-top: (($grid-gutter-width / 4));
+      margin-bottom: (($grid-gutter-width / 4));
+    }
+  }
+}

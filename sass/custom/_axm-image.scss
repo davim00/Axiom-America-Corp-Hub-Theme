@@ -1,0 +1,79 @@
+//
+// Image post format
+// --------------------------------------------------
+
+.format-image {
+
+  .no-thumbnail {
+    p:first-of-type {
+      margin-left: -($grid-gutter-width / 4);
+      margin-right: -($grid-gutter-width / 4);
+      margin-bottom: $line-height-computed;
+
+      img:first-of-type {
+        width: 100%; // About 740px for >1200 wide screens
+        height: 169px; // The golden ratio
+        object-fit: cover; // Make all featured images crop to the same height
+      }
+
+      @media (min-width: $grid-float-breakpoint) {
+        margin-left: -($grid-gutter-width / 2);
+        margin-right: -($grid-gutter-width / 2);
+
+        img:first-of-type {
+          width: 100%; // About 740px for >1200 wide screens
+          height: 457px; // The golden ratio
+        }
+      }
+    }
+  }
+
+  // Image with caption
+  .no-thumbnail {
+
+    figure {
+
+      &,
+      &.aligncenter,
+      &.alignnone,
+      &.alignright {
+
+        &:first-of-type {
+          margin-left: -(($grid-gutter-width / 4)) !important;
+          margin-right: -(($grid-gutter-width / 4)) !important;
+          max-width: none;
+          width: inherit !important;
+          position: relative;
+          text-align: center;
+
+          img {
+            width: 100%; // About 740px for >1200 wide screens
+            height: 169px; // The golden ratio
+            object-fit: cover; // Make all featured images crop to the same height
+          }
+
+          .wp-caption-text {
+            position: absolute;
+            z-index: 2;
+            background-color: rgba(0,0,0,0.5);
+            color: $gray-lighter;
+            font-size: $font-size-base;
+            padding: (($grid-gutter-width / 4));
+            width: 100%;
+            bottom: 0;
+          }
+
+          @media (min-width: $grid-float-breakpoint) {
+            margin-left: -(($grid-gutter-width / 2)) !important;
+            margin-right: -(($grid-gutter-width / 2)) !important;
+
+            img {
+              width: 100%; // About 740px for >1200 wide screens
+              height: 457px; // The golden ratio
+            }
+          }
+        }
+      }
+    }
+  }
+}

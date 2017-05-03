@@ -1,0 +1,25 @@
+//
+// Video post format
+// --------------------------------------------------
+
+.format-video {
+
+  .no-thumbnail {
+    .jetpack-video-wrapper:first-of-type {
+      margin-left: -($grid-gutter-width / 4);
+      margin-right: -($grid-gutter-width / 4);
+      margin-bottom: $line-height-computed;
+      background-color: #000;
+      text-align: center;
+
+      iframe {
+        display: inline-block !important;
+      }
+
+      @media (min-width: $grid-float-breakpoint) {
+        margin-left: -($grid-gutter-width / 2);
+        margin-right: -($grid-gutter-width / 2);
+      }
+    }
+  }
+}

@@ -19,7 +19,8 @@
     &.list-group-item {
       padding: (($padding-small-vertical)) 0;
       font-size: 32px;
-      margin-right: 10px; 
+      margin-right: 10px;
+      border: none; 
 
       &:before {
         content: "";

@@ -154,9 +154,19 @@ mark,
 // -------------------------
 
 .page-header {
-  padding-bottom: (($line-height-computed / 3) - 1);
-  margin: ($line-height-computed * 2) 0 $line-height-computed;
-  border-bottom: 1px solid $page-header-border-color;
+  background-color: $brand-success;
+  padding: (($grid-gutter-width / 4));
+  color: #fff;
+  margin-bottom: (($grid-gutter-width / 2));
+
+  h1, h2 {
+    margin-top: 0;
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    padding: (($grid-gutter-width / 2));
+    margin-bottom: $grid-gutter-width;
+  }
 }
 
 

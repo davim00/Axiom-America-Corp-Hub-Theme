@@ -25,12 +25,11 @@ if ( post_password_required() ) {
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
-		<h2 class="comments-title">
+		<h3 class="comments-title">
 			<?php
 				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'axiom-america' ) ),
-					number_format_i18n( get_comments_number() ),
-					'<span>' . get_the_title() . '</span>'
+					esc_html( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'axiom-america' ) ),
+					number_format_i18n( get_comments_number() )
 				);
 			?>
 		</h2><!-- .comments-title -->
@@ -51,6 +50,7 @@ if ( post_password_required() ) {
 			<?php
 				wp_list_comments( array(
 					'style'      => 'ol',
+					'callback'   => 'axiom_america_comments',
 					'short_ping' => true,
 				) );
 			?>
@@ -79,7 +79,13 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+	comment_form( array(
+		'title_reply' => 'Leave a reply',
+		'title_reply_to' => 'Leave a reply to %s',
+		'cancel_reply_before' => '<span class="cancel-reply">',
+		'cancel_reply_after' => '</span>',
+		'cancel_reply_link' => 'Cancel'
+	));
 	?>
 
 </div><!-- #comments -->

@@ -14,7 +14,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+<div class="row">
+	<div id="primary" class="content-area col-sm-8">
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -40,7 +41,10 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination(array(
+				'prev_text' => __('&#xf053;', 'axiom-america'),
+				'next_text' => __('&#xf054;', 'axiom-america')
+			));
 
 		else :
 

@@ -43,9 +43,30 @@ function axiom_america_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
+
+	// Register Bootstrap Navigation Walker
+	require_once('wp_bootstrap_navwalker.php');
+
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'axiom-america' ),
+        'primary' => esc_html__( 'Primary', 'axiom-america' ),
 	) );
+
+	/*
+	 * Enable support for Post formats.
+	 *
+	 * @link https://codex.wordpress.org/Post_Formats
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'gallery',
+	 	'link',
+		'image',
+		'quote',
+		'status',
+		'video',
+		'audio',
+		'chat')
+	);
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -79,7 +100,7 @@ add_action( 'after_setup_theme', 'axiom_america_setup' );
  * @global int $content_width
  */
 function axiom_america_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'axiom_america_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'axiom_america_content_width', 677 );
 }
 add_action( 'after_setup_theme', 'axiom_america_content_width', 0 );
 
@@ -91,12 +112,39 @@ add_action( 'after_setup_theme', 'axiom_america_content_width', 0 );
 function axiom_america_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'axiom-america' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'sidebar-page',
 		'description'   => esc_html__( 'Add widgets here.', 'axiom-america' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s panel panel-default">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<div class="widget-title panel-heading">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Left Footer', 'axiom-america' ),
+		'id'            => 'sidebar-footer-left',
+		'description'   => esc_html__( 'Add widgets here.', 'axiom-america' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s panel panel-default">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<div class="widget-title panel-heading">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Center Footer', 'axiom-america' ),
+		'id'            => 'sidebar-footer-center',
+		'description'   => esc_html__( 'Add widgets here.', 'axiom-america' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s panel panel-default">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<div class="widget-title panel-heading">',
+		'after_title'   => '</div>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Right Footer', 'axiom-america' ),
+		'id'            => 'sidebar-footer-right',
+		'description'   => esc_html__( 'Add widgets here.', 'axiom-america' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s panel panel-default">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<div class="widget-title panel-heading">',
+		'after_title'   => '</div>',
 	) );
 }
 add_action( 'widgets_init', 'axiom_america_widgets_init' );
@@ -105,11 +153,17 @@ add_action( 'widgets_init', 'axiom_america_widgets_init' );
  * Enqueue scripts and styles.
  */
 function axiom_america_scripts() {
+	wp_enqueue_style( 'axiomamerica-source-sans-pro-css', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i,900,900i' );
+	wp_enqueue_style( 'fontawesome-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'axiom-america-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'axiom-america-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	//wp_enqueue_script( 'axiom-america-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'axiom-america-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'axiom-america-js-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '4.7.3' );
+
+	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array(), '337', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -126,6 +180,12 @@ require get_template_directory() . '/inc/custom-header.php';
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom template sections for this theme.
+ */
+require get_template_directory() . '/inc/jumbotron-front.php';
+require get_template_directory() . '/inc/site-navigation.php';
 
 /**
  * Custom functions that act independently of the theme templates.

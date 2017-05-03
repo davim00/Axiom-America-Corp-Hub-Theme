@@ -2,10 +2,20 @@
 // Form styles
 // --------------------------------------------------
 
-.widget-search input[type=submit] {
+.search-submit {
   font-family: "Fontawesome";
 }
 
-.comment-form label {
-  display: none;
+.comment-form, .post-password-form {
+  label {
+    display: none;
+  }
+}
+
+.post-password-form .password-submit {
+  display: inline-block;
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    margin-top: 10px;
+  }
 }

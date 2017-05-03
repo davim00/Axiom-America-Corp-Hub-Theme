@@ -7,6 +7,9 @@ jQuery(document).ready(function() {
     jQuery('.nav-previous a, .nav-next a').addClass('btn btn-primary btn-clear');
     jQuery('.page-numbers').addClass('btn btn-primary btn-clear');
     jQuery('span.page-numbers').addClass('active');
+    jQuery('.page-links a').addClass('btn btn-primary btn-clear');
+    jQuery('.more-link').addClass('btn btn-warning text-right');
+    //jQuery('.cancel-reply a').addClass('btn btn-info btn-sm');
     // Basic Styling for forms
     jQuery('p[class*=comment-form]').addClass('form-group');
     jQuery('textarea#comment, .comment-form input#author, .comment-form input#email, .comment-form input#url').addClass('form-control');
@@ -26,7 +29,13 @@ jQuery(document).ready(function() {
     // Widgets as panels
     jQuery('.widget ul').addClass('list-group');
     jQuery('.widget ul li').addClass('list-group-item');
-    jQuery('.widget.widget-search').removeClass('panel panel-default');
+    jQuery('.widget.widget_search').removeClass('panel panel-default');
+    jQuery('#sociallinks').removeClass('list-group');
+    // Typography
+    jQuery('.archive-description').addClass('lead');
+    // Gallery
+    jQuery('.gallery').addClass('row');
+    jQuery('.gallery-item').addClass('col-sm-4');
     // Show elements immediately
     jQuery('#submit, .tagcloud, button[type=submit], .comment-reply-link, .widget_rss ul, .postform, table#wp-calendar').show("fast");
     // Shrink navbar when page is scrolled

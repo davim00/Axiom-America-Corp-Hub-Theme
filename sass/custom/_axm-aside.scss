@@ -1,0 +1,9 @@
+//
+// Aside post format
+// --------------------------------------------------
+
+.format-aside {
+  font-size: (($font-size-base * 1.25));
+  font-style: italic;
+  color: lighten($text-color, 30%);
+}

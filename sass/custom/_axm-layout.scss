@@ -24,8 +24,20 @@
   }
 }
 
+
 // Blog and Page Basics
 // ---------------------------------------------------
+
+.page-content {
+  background-color: #fff;
+  padding: ($grid-gutter-width / 4);
+  margin-bottom: ($grid-gutter-width / 2);
+
+  @media (min-width: $grid-float-breakpoint) {
+    padding: ($grid-gutter-width / 2);
+    margin-bottom: $grid-gutter-width;
+  }
+}
 
 article {
   &.post,
@@ -79,6 +91,14 @@ article {
     }
   }
 
+  .read-more-link {
+    @include clearfix();
+  }
+
+  .more-link {
+    float: right;
+  }
+
   // Featured image
   .post-thumbnail {
     margin-left: -($grid-gutter-width / 4);
@@ -126,28 +146,29 @@ article {
       }
     }
 
-    .cat-links, .tags-links {
+    .cat-links, .tags-links, .comments-link {
       display: block;
+
+      &:before {
+        font-family: "Fontawesome";
+        display: inline-block;
+        margin-right: 5px;
+        color: $gray-light;
+        width: 1.28571429em;
+        text-align: center;
+      }
     }
 
     .cat-links:before {
       content: "\f07b";
-      font-family: "Fontawesome";
-      display: inline-block;
-      margin-right: 10px;
-      color: $gray-light;
-      width: 1.28571429em;
-      text-align: center;
     }
 
     .tags-links:before {
       content: "\f02b";
-      font-family: "Fontawesome";
-      display: inline-block;
-      margin-right: 10px;
-      color: $gray-light;
-      width: 1.28571429em;
-      text-align: center;
+    }
+
+    .comments-link:before {
+      content: "\f075";
     }
 
     @media (min-width: $grid-float-breakpoint) {
@@ -166,7 +187,6 @@ aside#secondary {
 
   .widget {
     background-color: transparent;
-    border: 1px solid $gray-light;
     margin-bottom: ($grid-gutter-width / 2);
 
     .list-group-item {
@@ -227,7 +247,8 @@ aside#secondary {
   display: block;
   text-align: right;
 
-  a.post-edit-link {
+  a.post-edit-link,
+  a.comment-edit-link {
     display: inline-block;
     border: 1px solid $gray-light;
     padding: 10px 14px;
@@ -262,6 +283,171 @@ aside#secondary {
         display: inline-block;
         vertical-align: middle;
         line-height: $font-size-base;
+      }
+    }
+  }
+}
+
+// Comments
+// ---------------------------------------------------
+#comments {
+  margin-bottom: (($grid-gutter-width / 2));
+
+  .comments-title {
+    margin-bottom: (($grid-gutter-width / 4));
+  }
+
+  .pingback {
+    margin-bottom: (($grid-gutter-width / 4));
+  }
+
+  .comment-list,
+  .comment-list .children {
+    list-style: none;
+    padding-left: 0;
+
+    .children {
+      padding-left: 5px;
+      border-left: 2px solid $gray-light;
+
+      li article {
+        margin-top: -(($grid-gutter-width / 4) + 5);
+      }
+
+      @media (min-width: $grid-float-breakpoint) {
+        padding-left: 10px;
+        border-left: 4px solid $gray-light;
+
+        li article {
+          margin-top: -($grid-gutter-width - 10);
+        }
+      }
+    }
+
+    li article {
+      background-color: #fff;
+      padding: (($grid-gutter-width / 4));
+      margin-bottom: (($grid-gutter-width / 2));
+      position: relative;
+      @include clearfix();
+
+      .comment-meta {
+        margin-bottom: (($grid-gutter-width / 4));
+
+        .comment-author-name {
+          font-weight: bold;
+        }
+
+        .comment-author img,
+        .comment-author .says {
+          display: none;
+        }
+
+        @media (min-width: $grid-float-breakpoint) {
+          margin-bottom: 0;
+        }
+
+        .edit-link {
+          text-align: left;
+        }
+      }
+
+      .comment-metadata {
+        font-size: $font-size-small;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: lighten($text-color, 30%);
+
+        > a {
+          color: lighten($text-color, 30%);
+
+          &:hover,
+          &:focus {
+            color: $link-hover-color;
+          }
+        }
+
+        .comment-date, .comment-time {
+          display: block;
+        }
+      }
+
+      .comment-content {
+        h1, h2, h3, h4, h5, h6,
+        .h1, .h2, .h3, .h4, .h5, .h6 {
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+      }
+
+      @media (min-width: $grid-float-breakpoint) {
+        padding: (($grid-gutter-width / 2));
+        margin-bottom: $grid-gutter-width;
+      }
+
+      .reply {
+        display: block;
+        text-align: right;
+        position: relative;
+        top: 0;
+      }
+    }
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    margin-bottom: $grid-gutter-width;
+  }
+}
+
+#respond {
+
+  .comment-reply-title {
+    margin-top: 0;
+    position: relative;
+
+    .cancel-reply {
+      position: absolute;
+      right: 0;
+
+      a {
+        display: inline-block;
+        border: 1px solid $gray-light;
+        padding: 10px 14px;
+        font-weight: bold;
+        font-size: $font-size-base;
+        color: #fff;
+        background-color: $gray-light;
+        transition: background-color 0.2s, border-color 0.2s;
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          background-color: lighten($gray-light, 10%);
+          border-color: lighten($gray-light, 10%);
+          color: #fff;
+        }
+
+        &:before {
+          content: "\f00d";
+          font-family: "Fontawesome";
+          font-weight: normal;
+          margin-right: 5px;
+        }
+
+        @media (min-width: $grid-float-breakpoint) {
+          padding: 6px 10px;
+          font-size: $font-size-small;
+
+          &:before {
+            font-size: ($font-size-base + 4);
+            display: inline-block;
+            vertical-align: middle;
+            line-height: $font-size-base;
+            margin-bottom: 2px;
+          }
+        }
       }
     }
   }
@@ -346,5 +532,36 @@ aside#secondary {
   @media (min-width: $grid-float-breakpoint) {
     padding-top: (($grid-gutter-width / 2));
     padding-bottom: (($grid-gutter-width / 2));
+  }
+}
+
+
+// 404 page
+// ---------------------------------------------------
+.error-404 {
+
+  .page-header {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  .page-content > .search-form {
+    margin-top: (($grid-gutter-width / 2));
+  }
+}
+
+// Search page
+// ---------------------------------------------------
+.search {
+
+  .page-header {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  .page-content > .search-form {
+    margin-top: (($grid-gutter-width / 2));
   }
 }

@@ -29,12 +29,12 @@ function axiom_america_posted_on() {
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
-	/*$byline = sprintf(
+	$byline = sprintf(
 		esc_html_x( 'by %s', 'post author', 'axiom-america' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);*/
+	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 }
 endif;
@@ -120,72 +120,3 @@ function axiom_america_category_transient_flusher() {
 }
 add_action( 'edit_category', 'axiom_america_category_transient_flusher' );
 add_action( 'save_post',     'axiom_america_category_transient_flusher' );
-
-/**
- * Modify the Read More link
- *
- * @link https://codex.wordpress.org/Customizing_the_Read_More
- */
- function modify_read_more_link() {
-    return '<div class="read-more-link"><a class="more-link" href="' . get_permalink() . '">Read more</a></div>';
-	}
-add_filter( 'the_content_more_link', 'modify_read_more_link' );
-
-/**
- * Modify the post password form output
- */
-add_filter( 'the_password_form', 'custom_password_form' );
-function custom_password_form() {
-	global $post;
-	$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-	$output = '<form class="post-password-form form-inline" action="' . esc_url( site_url('/wp-login.php?action=postpass', 'login_post') ) . '" method="post"><p>' . __( 'This content is password protected. To view it please enter your password below:' ) . '</p><div class="form-group"><label for="' . $label . '">Password</label><input name="post-password" id="' . $label . '" type="password" placeholder="Password" class="form-control"/></div><div class="password-submit"><input type="submit" name="Submit" class="btn btn-warning" value="' . esc_attr__( "Submit" ) . '" /></div></form>';
-
-	return $output;
-};
-
-/**
- * Format the comment output
- */
-function axiom_america_comments( $comment, $args, $depth ) {
-    $GLOBALS['comment'] = $comment;
-    switch( $comment->comment_type ) :
-        case 'pingback' :
-        case 'trackback' : ?>
-            <li <?php comment_class(); ?> id="comment<?php comment_ID(); ?>">
-            <div class="back-link"><?php comment_author_link(); ?></div>
-        <?php break;
-        default : ?>
-            <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-            	<article <?php comment_class(); ?> class="comment">
-								<div class="row">
-								  <div class="col-sm-3 comment-meta">
-								    <div class="comment-author vcard">
-								    	<?php echo get_avatar( $comment, 100 ); ?>
-											<span class="comment-author-name"><?php comment_author(); ?></span>
-								    </div>
-										<div class="comment-metadata">
-											<time <?php comment_time( 'c' ); ?> class="comment-time-date">
-												<span class="comment-date"><?php comment_date(); ?></span>
-												<span class="comment-time"><?php comment_time(); ?></span>
-											</time>
-										</div>
-										<div class="edit-link">
-											<?php edit_comment_link( 'Edit' ); ?>
-										</div>
-								  </div>
-									<div class="col-sm-9 comment-content">
-									  <?php comment_text(); ?>
-									</div>
-								</div>
-								<div class="reply">
-									<?php comment_reply_link( array_merge( $args, array(
-            'reply_text' => 'Reply',
-            'depth' => $depth,
-            'max_depth' => $args['max_depth']
-            ) ) ); ?>
-								</div>
-							</article><!-- #comment-<?php comment_ID(); ?>-->
-        <?php // End the default styling of comment
-        break;
-    endswitch;
-}

@@ -12,12 +12,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
-		if ( is_single() ) :
-			the_title( '<h2 class="entry-title">', '</h2>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php axiom_america_posted_on(); ?>
@@ -25,16 +19,7 @@
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
-
 	<div class="entry-content">
-		<div class="post-thumbnail">
-			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail();
-			}
-			?>
-		</div>
-
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
@@ -49,7 +34,15 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php axiom_america_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php
+	edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			esc_html__( 'Edit %s', 'axiom-america' ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		),
+		'<span class="edit-link">',
+		'</span>'
+	);
+	 ?>
 </article><!-- #post-## -->

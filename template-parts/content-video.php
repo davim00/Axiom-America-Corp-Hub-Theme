@@ -36,11 +36,25 @@
 		</div>
 
 		<?php
+		if ( ! has_post_thumbnail() ) {
+		?>
+		<div class="no-thumbnail">
+			<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Read more %s', 'axiom-america' ), array( 'span' => array( 'class' => array() ) ) ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
+			 ?>
+		</div>
+	<?php } else {
+		the_content( sprintf(
+			/* translators: %s: Name of current post. */
+			wp_kses( __( 'Read more %s', 'axiom-america' ), array( 'span' => array( 'class' => array() ) ) ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		) );
+	}
+
 
 			wp_link_pages( array(
 				'before' => '<nav class="post-page-navigation"><div class="page-links">' . esc_html__( 'Pages:', 'axiom-america' ),

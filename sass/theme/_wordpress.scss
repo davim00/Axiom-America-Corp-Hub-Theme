@@ -20,10 +20,12 @@ font-size:inherit;
 // Necessary WP classes
 .wp-caption {
 	font-size: inherit;
+  margin-bottom: $line-height-computed;
 }
 
 .wp-caption-text {
-	font-size: inherit;
+	font-size: $font-size-small;
+  margin-top: (($line-height-computed / 4));
 }
 
 .screen-reader-text {
@@ -33,22 +35,35 @@ font-size:inherit;
 
 .alignright {
 	float: right;
-  padding-left:10px;
+  padding-left:$line-height-computed;
+  margin-top: 0;
+  margin-bottom: $line-height-computed;
 }
 
 .alignleft {
 	float: left;
-  padding-right:10px;
+  padding-right:$line-height-computed;
+  margin-top: 0;
+  margin-bottom: $line-height-computed;
 }
 
 .aligncenter {
-	margin:0px auto;
+	margin: $line-height-computed auto;
+}
+
+.alignnone {
+  margin: $line-height-computed 0;
 }
 
 //Limit featured image size to 100%
 img.wp-post-image, article img, figure, img, #secondary img {
 	max-width: 100%;
   height: auto;
+}
+
+figure {
+  margin-top: $line-height-computed;
+  margin-bottom: $line-height-computed;
 }
 
 // Skip to content link
