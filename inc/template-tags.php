@@ -189,3 +189,41 @@ function axiom_america_comments( $comment, $args, $depth ) {
         break;
     endswitch;
 }
+
+/**
+ * Display the featured image and set a fallback image
+ * if there is not featured image.
+ */
+ function axiom_america_post_thumbnail() {
+	 if ( has_post_thumbnail() ) {
+		 the_post_thumbnail();
+	 } else {
+		 ?>	<img src="<?php echo esc_url( bloginfo('template_directory') . '/images/featured-img-fallback.jpg' ); ?>" alt="<?php the_title(); ?>" />
+		<?php ;
+ 	 }
+ }
+
+ /**
+  * Display the site logo.
+  */
+ function axiom_america_the_custom_logo() {
+
+	 if ( function_exists( 'the_custom_logo' ) ) {
+ 		the_custom_logo();
+ 	}
+ }
+
+// Make the custom logo play nicely with Bootstrap
+ add_filter('get_custom_logo','change_logo_class');
+
+ function change_logo_class($html) {
+	 $html = str_replace('custom-logo-link', 'navbar-brand', $html);
+	 return $html;
+ }
+
+ add_filter( 'get_custom_logo', 'remove_width_attribute', 10 );
+
+function remove_width_attribute( $html ) {
+   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+   return $html;
+}

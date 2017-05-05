@@ -11,11 +11,14 @@
 
 function axiom_america_site_nav() {
   if ( is_front_page() && ! is_home() ) :
-    ?>
-    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
+    if ( get_theme_mod( true == 'jumbotron_show', true ) ) : ?>
+      <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
     <?php else : ?>
-    <nav class="navbar navbar-default   navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <?php endif; ?>
+  <?php else: ?>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <?php endif; ?>
       <div class="container">
         <div class="navbar-header">
           <?php if (has_nav_menu("primary")): ?>
@@ -26,7 +29,10 @@ function axiom_america_site_nav() {
             <span class="sr-only">Toggle navigation</span>
           </button>
           <?php endif; ?>
-          <span class="site-title"><a class="site-title navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+          <span class="site-title">
+            <!-- <a class="site-title navbar-brand" href="<?php //echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php //axiom_america_the_custom_logo(); ?></a> -->
+            <?php axiom_america_the_custom_logo(); ?>
+          </span>
         </div>
 
         <?php if (has_nav_menu("primary")): ?>

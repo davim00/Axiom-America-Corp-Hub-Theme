@@ -36,6 +36,19 @@ function axiom_america_setup() {
 	add_theme_support( 'title-tag' );
 
 	/*
+	 * Enable support for theme logo.
+	 *
+	 * @link https://codex.wordpress.org/Theme_Logo
+	 */
+	add_theme_support( 'custom-logo', array(
+		'height'      => 50,
+		'width'       => 162,
+		'flex-height' => false,
+		'flex-width'  => true,
+		'header-text' => 'site-title'
+	) );
+
+	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
@@ -81,10 +94,10 @@ function axiom_america_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'axiom_america_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+	// add_theme_support( 'custom-background', apply_filters( 'axiom_america_custom_background_args', array(
+		// 'default-color' => 'ffffff',
+		// 'default-image' => '',
+	// ) ) );
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
@@ -174,7 +187,7 @@ add_action( 'wp_enqueue_scripts', 'axiom_america_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -186,11 +199,28 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/jumbotron-front.php';
 require get_template_directory() . '/inc/site-navigation.php';
+require get_template_directory() . '/inc/quote-front.php';
+require get_template_directory() . '/inc/about-front.php';
 
 /**
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Recommend the Kirki plugin
+ */
+require get_template_directory() . '/inc/include-kirki.php';
+
+/**
+ * Load the Kirki class
+ */
+require get_template_directory() . '/inc/class-axiom-america-kirki.php';
+
+/**
+ * Load the Kirki Fallback class
+ */
+require get_template_directory() . '/inc/kirki-fallback.php';
 
 /**
  * Customizer additions.

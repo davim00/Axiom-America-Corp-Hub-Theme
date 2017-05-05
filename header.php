@@ -31,4 +31,13 @@
 
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content container">
+	<?php if ( is_front_page() && ! is_home() ) :
+
+		if ( get_theme_mod( true == 'featured_posts_show', true ) ) : ?>
+			<div id="content" class="site-content container">
+		<?php else : ?>
+			<div id="content" class="site-content full-width">
+		<?php endif;
+		else : ?>
+			<div id="content" class="site-content container">
+		<?php endif;

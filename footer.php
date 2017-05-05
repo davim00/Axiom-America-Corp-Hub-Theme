@@ -39,9 +39,10 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="site-info">
-						<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'axiom-america' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'axiom-america' ), 'WordPress' ); ?></a>
-						<span class="sep"> | </span>
-						<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'axiom-america' ), 'axiom-america', '<a href="https://automattic.com/" rel="designer">Axiom America, LLC</a>' ); ?>
+						<?php if ( true == get_theme_mod( 'footer_copyright', true ) ) : ?>
+							&copy; <?php echo date("Y");
+						endif;
+						echo ' ' . esc_html( get_theme_mod( 'footer_text', 'Axiom America LLC. All rights reserved.' ) ); ?>
 					</div><!-- .site-info -->
 				</div>
 				<!-- .col -->

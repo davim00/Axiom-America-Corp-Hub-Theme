@@ -21,6 +21,9 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
+		<div class="post-thumbnail">
+			<?php axiom_america_post_thumbnail();	?>
+		</div>
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 

@@ -15,6 +15,9 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<div class="post-thumbnail">
+			<?php axiom_america_post_thumbnail();	?>
+		</div>
 		<?php
 			the_content();
 
