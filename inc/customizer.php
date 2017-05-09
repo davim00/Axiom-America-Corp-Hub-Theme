@@ -39,7 +39,7 @@ axiom_america_Kirki::add_config( 'axiom_america', array(
 
 axiom_america_Kirki::add_panel( 'front_page', array(
     'priority'    => 160,
-    'title'       => __( 'Front Page', 'axiom-america' ),
+    'title'       => __( 'Front Page Options', 'axiom-america' ),
     'description' => __( 'You can customize the sections for the static front page.', 'axiom-america' ),
 ) );
 
@@ -63,6 +63,22 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 				),
 				'priority' => 10,
 				'default'  => '1'
+		) );
+
+		axiom_america_Kirki::add_field( 'axiom_america', array(
+				'settings' => 'jumbotron_image',
+				'label'    => __( 'Hero Section Background Image', 'axiom-america' ),
+				'section'  => 'jumbotron_front',
+				'type'     => 'image',
+				'priority' => 15,
+				'default'  => get_template_directory_uri() . '/images/BlurredBackground.jpg',
+				'active_callback' => array(
+					array(
+						'setting'  => 'jumbotron_show',
+						'operator' => '==',
+						'value'    => true,
+					)
+				)
 		) );
 
 		axiom_america_Kirki::add_field( 'axiom_america', array(
@@ -113,6 +129,11 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 				'default'  => 'option-1',
 				'active_callback' => array(
 					array(
+						'setting'  => 'jumbotron_show',
+						'operator' => '==',
+						'value'    => true
+					),
+					array(
 						'setting'  => 'jumbotron_show_button',
 						'operator' => '==',
 						'value'    => 'one'
@@ -129,6 +150,11 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 				'priority' => 50,
 				'default'  => 'Find out more',
 				'active_callback' => array(
+					array(
+						'setting'  => 'jumbotron_show',
+						'operator' => '==',
+						'value'    => true
+					),
 					array(
 						'setting'  => 'jumbotron_show_button',
 						'operator' => '==',
@@ -147,6 +173,11 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 				'default'  => 'option-1',
 				'active_callback' => array(
 					array(
+						'setting'  => 'jumbotron_show',
+						'operator' => '==',
+						'value'    => true
+					),
+					array(
 						'setting'  => 'jumbotron_show_button',
 						'operator' => '==',
 						'value'    => 'two'
@@ -164,6 +195,11 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 				'default'  => 'Find out more',
 				'active_callback' => array(
 					array(
+						array(
+							'setting'  => 'jumbotron_show',
+							'operator' => '==',
+							'value'    => true
+						),
 						'setting'  => 'jumbotron_show_button',
 						'operator' => '==',
 						'value'    => 'two'
@@ -181,6 +217,11 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 				'default'  => 'option-1',
 				'active_callback' => array(
 					array(
+						'setting'  => 'jumbotron_show',
+						'operator' => '==',
+						'value'    => true
+					),
+					array(
 						'setting'  => 'jumbotron_show_button',
 						'operator' => '==',
 						'value'    => 'two'
@@ -197,6 +238,11 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 				'priority' => 90,
 				'default'  => 'Find out more',
 				'active_callback' => array(
+					array(
+						'setting'  => 'jumbotron_show',
+						'operator' => '==',
+						'value'    => true
+					),
 					array(
 						'setting'  => 'jumbotron_show_button',
 						'operator' => '==',
@@ -514,3 +560,49 @@ axiom_america_Kirki::add_panel( 'front_page', array(
 					'default'	 => '1',
 					'priority' => 20,
 			) );
+
+		// Color Schemes
+
+		axiom_america_Kirki::add_section( 'colors', array(
+		    'title'          => __( 'Color Options' ),
+		    'description'    => __( 'Specify options for the site footer.' ),
+		    'priority'       => 180,
+		    'capability'     => 'edit_theme_options',
+		) );
+
+			axiom_america_Kirki::add_field( 'axiom_america', array(
+					'settings' => 'color_schemes',
+					'label'    => __( 'Select a color scheme', 'axiom-america' ),
+					'section'  => 'colors',
+					'type'     => 'palette',
+					'default'	 => 'default',
+					'priority' => 10,
+					'choices'  => array(
+						'default' => array(
+							'rgba(0,43,69,1)',
+							'rgba(92,127,146,1)',
+							'rgba(233,131,0,1)'
+						),
+						'red' => array(
+							'rgba(198,12,48,1)',
+							'rgba(120,120,120,1)',
+							'rgba(77,151,196,1)'
+						),
+						'green' => array(
+							'rgba(24, 77, 29, 1)',
+							'rgba(66, 163, 75, 1)',
+							'rgba(215, 201, 18, 1)'
+						)
+					)
+			) );
+
+		function axiom_america_color_schemes() {
+			$color_setting = get_theme_mod( 'color_schemes', 'default' );
+			if ( 'default' == $color_setting ) :
+				wp_enqueue_style( 'axiom-america-style', get_stylesheet_uri() );
+			elseif ( 'red' == $color_setting ) :
+				wp_enqueue_style( 'axiom-america-style', get_template_directory_uri() . '/css/red-style.css' );
+			elseif ( 'green' == $color_setting ) :
+				wp_enqueue_style( 'axiom-america-style', get_template_directory_uri() . '/css/green-style.css' );
+			endif;
+		}
