@@ -11,7 +11,7 @@
 
 function axiom_america_site_nav() {
   if ( is_front_page() && ! is_home() ) :
-    if ( get_theme_mod( true == 'jumbotron_show', true ) ) : ?>
+    if ( true == get_theme_mod( 'jumbotron_show', true ) ) : ?>
       <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
     <?php else : ?>
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
