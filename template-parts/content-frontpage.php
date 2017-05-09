@@ -7,7 +7,7 @@
  * @package Axiom_America
  */
 
-?>
+ ?>
 
 <div class="col-sm-4">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
