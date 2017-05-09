@@ -1,0 +1,146 @@
+/*!
+Theme Name: Axiom America
+Theme URI: http://Axiom America.me/
+Author: Matt Davis
+Author URI: http://Axiom America.me/
+Description: Base theme used to create an HTML template for prototyping new Wordpress theme designs.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: axiomamerica
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Axiom America is based on Axiom America http://Axiom America.me/, (C) 2012-2016 Automattic, Inc.
+Axiom America is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize & Print
+# Typography
+# Elements
+# Forms & Tables
+# Components
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+//@import "variables-site/variables-site";
+//@import "mixins/mixins-master";
+@import "bootstrap/mixins";
+@import "custom/axm-mixins";
+@import "custom/axm-variables";
+@import "colors/green-scheme";
+
+/*--------------------------------------------------------------
+# Normalize & Print
+--------------------------------------------------------------*/
+//@import "normalize";
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+//@import "elements/elements";
+@import "custom/axm-structure";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+//@import "typography/typography";
+@import "bootstrap/code";
+@import "custom/axm-typography";
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+@import "bootstrap/grid";
+
+
+/*--------------------------------------------------------------
+# Forms & Tables
+--------------------------------------------------------------*/
+//@import "forms/forms";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "custom/axm-forms";
+@import "custom/axm-buttons";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+//@import "navigation/navigation";
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "custom/axm-nav";
+@import "custom/axm-navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+//@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+//@import "modules/alignments";
+@import "bootstrap/utilities";
+@import "custom/axm-utilities";
+@import "bootstrap/responsive-utilities";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+//@import "media/media";
+@import "bootstrap/media";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "theme/wordpress";
+@import "custom/axm-widgets";
+@import "custom/axm-layout";
+@import "custom/axm-frontpage";
+@import "custom/axm-gallery";
+@import "custom/axm-image";
+@import "custom/axm-video";
+@import "custom/axm-aside";
+@import "custom/axm-status";
+@import "custom/axm-quote";
