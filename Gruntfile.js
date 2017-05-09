@@ -27,7 +27,9 @@ module.exports = function(grunt) {
                     style: 'nested',
                 },
                 files: {
-                    'style.css': 'sass/style.scss'
+                    'style.css': 'sass/style.scss',
+                    'css/red-style.css': 'sass/red-style.scss',
+                    'css/green-style.css': 'sass/green-style.scss'
                 }
             }
         },
@@ -61,14 +63,14 @@ module.exports = function(grunt) {
               files: ['*.php', 'template-parts/*.php', 'inc/*.php']
             },
             css: {
-                files: ['sass/*.scss', 'sass/custom/*.scss', 'sass/theme/*.scss'],
+                files: ['sass/*.scss', 'sass/custom/*.scss', 'sass/theme/*.scss', 'sass/colors/*.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false,
                 }
             },
             styles: {
-                files: ['style.css'],
+                files: ['style.css', 'red-style.css'],
                 tasks: ['autoprefixer'],
                 options: {
                     spawn: false,
