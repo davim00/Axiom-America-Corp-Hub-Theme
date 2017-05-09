@@ -25,15 +25,19 @@
 
 	<header id="masthead" class="site-header" role="banner">
 
-		<?php axiom_america_site_nav(); ?>
+		<?php axiom_america_site_nav();
 
-		<?php axiom_america_front_jumbotron(); ?>
+		if ( true == get_theme_mod( 'jumbotron_show', true ) ) :
+
+			axiom_america_front_jumbotron();
+
+		endif; ?>
 
 	</header><!-- #masthead -->
 
 	<?php if ( is_front_page() && ! is_home() ) :
 
-		if ( get_theme_mod( true == 'featured_posts_show', true ) ) : ?>
+		if ( true == get_theme_mod( 'featured_posts_show', true ) ) : ?>
 			<div id="content" class="site-content container">
 		<?php else : ?>
 			<div id="content" class="site-content full-width">
