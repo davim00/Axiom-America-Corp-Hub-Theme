@@ -14,7 +14,7 @@
 
 get_header();
 
-if ( get_theme_mod( true == 'featured_posts_show', true ) ) : ?>
+if ( true == get_theme_mod( 'featured_posts_show', true ) ) : ?>
 
 	<div class="row">
 		<div class="frontpage-articles">
@@ -30,16 +30,19 @@ if ( get_theme_mod( true == 'featured_posts_show', true ) ) : ?>
 					<?php
 					endif;
 
+					global $query_string;
+
 					/* Start the Loop */
-					$postcat = get_theme_mod( 'featured_posts_cat', 1);
+					$postcat = get_theme_mod( 'featured_posts_cat', 1 );
+					$postnumber = 3;
 					$args = array(
+						'posts_per_page' => $postnumber,
 						'cat' => $postcat,
-						'posts_per_page' => 3
 					);
-					$catquery = new WP_Query( $args );
+					query_posts( $args );
 
 
-					while($catquery->have_posts()) : $catquery->the_post();
+					while(have_posts()) : the_post();
 
 					/*
 					 * Include the Post-Format-specific template for the content.
@@ -70,11 +73,19 @@ if ( get_theme_mod( true == 'featured_posts_show', true ) ) : ?>
 </div>
 <!-- .container -->
 
-<?php endif; ?>
+<?php endif;
 
-<?php axiom_america_front_quote(); ?>
+if ( true == get_theme_mod( 'quote_show', true ) ) :
 
-<?php axiom_america_front_about() ?>
+	axiom_america_front_quote();
+
+endif;
+
+if ( true == get_theme_mod( 'about_show', true ) ) :
+
+	axiom_america_front_about();
+
+endif; ?>
 
 <div class="row">
 	<div id="primary" class="content-area col-sm-8">
