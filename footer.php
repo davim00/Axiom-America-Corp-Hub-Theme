@@ -14,7 +14,11 @@
 	</div>
 	<!-- #content -->
 
-	<aside id="footer" class="widget-area frontpage-footer-widgets" role="complementary">
+	<?php if ( 'red' == get_theme_mod( 'color_schemes', 'default') ) : ?>
+		<aside id="footer" class="widget-area frontpage-footer-widgets" role="complementary" style="background-color: rgba(120,120,120,1);">
+	<?php else : ?>
+		<aside id="footer" class="widget-area frontpage-footer-widgets" role="complementary">
+	<?php endif; ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4">
@@ -34,7 +38,11 @@
 	</aside>
 	<!-- #footer -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<?php if ( 'red' == get_theme_mod( 'color_schemes', 'default') ) : ?>
+		<footer id="colophon" class="site-footer" role="contentinfo" style="background-color: rgba(120,120,120,1);">
+	<?php else : ?>
+		<footer id="colophon" class="site-footer" role="contentinfo">
+	<?php endif; ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
