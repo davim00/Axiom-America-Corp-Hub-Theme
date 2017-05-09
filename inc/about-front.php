@@ -11,7 +11,6 @@
 
 function axiom_america_front_about() {
   if ( is_front_page() && ! is_home() ) :
-    if ( true == get_theme_mod( 'about_show', true ) ) :
     ?>
     <div class="frontpage-about">
     <div class="container">
@@ -55,5 +54,4 @@ function axiom_america_front_about() {
     </div>
     <!-- .vfrontpage-about -->
 <?php endif;
-endif;
 }

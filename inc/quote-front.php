@@ -11,7 +11,6 @@
 
 function axiom_america_front_quote() {
   if ( is_front_page() && ! is_home() ) :
-    if ( true == get_theme_mod( 'quote_show', true ) ) :
     ?>
     <div class="frontpage-quote">
     	<div class="container">
@@ -32,5 +31,4 @@ function axiom_america_front_quote() {
     </div>
     <!-- .frontpage-quote -->
 <?php endif;
-endif;
 }
