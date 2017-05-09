@@ -163,12 +163,33 @@ function axiom_america_widgets_init() {
 add_action( 'widgets_init', 'axiom_america_widgets_init' );
 
 /**
+ * Recommend the Kirki plugin
+ */
+require get_template_directory() . '/inc/include-kirki.php';
+
+/**
+ * Load the Kirki class
+ */
+require get_template_directory() . '/inc/class-axiom-america-kirki.php';
+
+/**
+ * Load the Kirki Fallback class
+ */
+require get_template_directory() . '/inc/kirki-fallback.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
  * Enqueue scripts and styles.
  */
 function axiom_america_scripts() {
 	wp_enqueue_style( 'axiomamerica-source-sans-pro-css', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i,900,900i' );
 	wp_enqueue_style( 'fontawesome-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
-	wp_enqueue_style( 'axiom-america-style', get_stylesheet_uri() );
+	axiom_america_color_schemes();
+	//wp_enqueue_style( 'axiom-america-style', get_stylesheet_uri() );
 
 	//wp_enqueue_script( 'axiom-america-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -206,26 +227,6 @@ require get_template_directory() . '/inc/about-front.php';
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
-
-/**
- * Recommend the Kirki plugin
- */
-require get_template_directory() . '/inc/include-kirki.php';
-
-/**
- * Load the Kirki class
- */
-require get_template_directory() . '/inc/class-axiom-america-kirki.php';
-
-/**
- * Load the Kirki Fallback class
- */
-require get_template_directory() . '/inc/kirki-fallback.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
