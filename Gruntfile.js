@@ -4,32 +4,40 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-//        concat: {
-//            dist: {
-//                src: [
-//                    'js/functions.js',
-//                    'js/navigation.js'
-//                ],
-//                dest: 'js/axiomcorp.js',
-//            }
-//        },
+        concat: {
+            dist: {
+                src: [
+                    'js/functions.js',
+                    'js/navigation.js',
+                ],
+                dest: 'js/axiomamerica.js',
+            }
+        },
 
-//        uglify: {
-//            build: {
-//                src: 'js/axiomcorp.js',
-//                dest: 'js/axiomcorp.min.js'
-//            }
-//        },
+        uglify: {
+            options: {
+              mangle: false
+            },
+            my_target: {
+              files: {
+                'release/js/axiomamerica.min.js': ['js/axiomamerica.js']
+              }
+            }
+        },
 
         sass: {
             dist: {
                 options: {
-                    style: 'nested',
+//                    style: 'nested',
+                    style: 'compressed',
                 },
                 files: {
-                    'style.css': 'sass/style.scss',
-                    'css/red-style.css': 'sass/red-style.scss',
-                    'css/green-style.css': 'sass/green-style.scss'
+//                    'style.css': 'sass/style.scss',
+//                    'css/red-style.css': 'sass/red-style.scss',
+//                    'css/green-style.css': 'sass/green-style.scss'
+                    'release/style.css': 'sass/style.scss',
+                    'release/css/red-style.css': 'sass/red-style.scss',
+                    'release/css/green-style.css': 'sass/green-style.scss'
                 }
             }
         },
@@ -37,7 +45,7 @@ module.exports = function(grunt) {
         autoprefixer: {
             dist: {
                 files: {
-                    'style.css': 'style.css'
+                    'release/style.css': 'style.css'
                 }
             }
         },
