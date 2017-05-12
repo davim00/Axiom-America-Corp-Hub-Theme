@@ -39,10 +39,10 @@ if ( true == get_theme_mod( 'featured_posts_show', true ) ) : ?>
 						'posts_per_page' => $postnumber,
 						'cat' => $postcat,
 					);
-					query_posts( $args );
+					$catquery = new WP_Query( $args );
 
 
-					while(have_posts()) : the_post();
+					while($catquery->have_posts()) : $catquery->the_post();
 
 					/*
 					 * Include the Post-Format-specific template for the content.

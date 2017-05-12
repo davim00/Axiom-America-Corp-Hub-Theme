@@ -28,13 +28,12 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-//                    style: 'nested',
                     style: 'compressed',
                 },
                 files: {
-//                    'style.css': 'sass/style.scss',
-//                    'css/red-style.css': 'sass/red-style.scss',
-//                    'css/green-style.css': 'sass/green-style.scss'
+                    'style.css': 'sass/style.scss',
+                    'css/red-style.css': 'sass/red-style.scss',
+                    'css/green-style.css': 'sass/green-style.scss',
                     'release/style.css': 'sass/style.scss',
                     'release/css/red-style.css': 'sass/red-style.scss',
                     'release/css/green-style.css': 'sass/green-style.scss'
@@ -45,7 +44,8 @@ module.exports = function(grunt) {
         autoprefixer: {
             dist: {
                 files: {
-                    'release/style.css': 'style.css'
+                    'release/style.css': 'style.css',
+                    'style.css': 'style.css'
                 }
             }
         },
@@ -54,15 +54,12 @@ module.exports = function(grunt) {
             options: {
                 livereload: true,
             },
-//            scripts: {
-//                files: ['js/*.js'],
-//                tasks: ['concat', 'uglify'],
-//                options: {
-//                    spawn: false,
-//                },
-//            },
             scripts: {
-              files: ['js/*.js'],
+                files: ['js/*.js'],
+                tasks: ['concat', 'uglify'],
+                options: {
+                    spawn: false,
+                },
             },
             html: {
               files: '*.html'

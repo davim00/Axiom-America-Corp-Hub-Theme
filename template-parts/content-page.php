@@ -16,7 +16,9 @@
 
 	<div class="entry-content">
 		<div class="post-thumbnail">
-			<?php axiom_america_post_thumbnail();	?>
+			<?php if ( has_post_thumbnail() ) {
+	 		 the_post_thumbnail();
+		 	}	?>
 		</div>
 		<?php
 			the_content();
