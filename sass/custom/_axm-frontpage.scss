@@ -18,6 +18,7 @@
     letter-spacing: normal;
     margin-top: floor(($grid-gutter-width * 0.75));
     margin-bottom: floor(($grid-gutter-width * 0.75));
+    text-shadow: 0px 0px 20px #000000;
 
     @media (min-width: $grid-float-breakpoint) {
       margin-top: (($grid-gutter-width * 2));
@@ -25,14 +26,15 @@
   }
 
   .btn-clear {
-    color: #fff;
     border-color: #fff;
+    background-color: #fff;
     margin-bottom: floor(($grid-gutter-width * 0.75));
 
     &:hover,
     &:focus {
-      color: $brand-primary;
-      background-color: #fff;
+      color: #fff;
+      background-color: $brand-warning;
+      border-color: $brand-warning;
     }
   }
 
